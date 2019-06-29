@@ -11,6 +11,7 @@ import CoreSpotlight
 import Intents
 import IntentsUI
 import MobileCoreServices
+import TubeStatusCore
 
 public let kViewStatusActivityType = "com.appktchn.TubeStatus.ViewStatus"
 
@@ -37,6 +38,7 @@ class StatusListVC: UITableViewController, Refreshable {
     }
     
     @objc fileprivate func loadStatuses() {
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         let activity = viewStatusShortcut()
         self.userActivity = activity
         activity.becomeCurrent()
@@ -44,12 +46,14 @@ class StatusListVC: UITableViewController, Refreshable {
     }
     
     @objc func refresh() {
+        //JMS TODO, if loadStatuses returns an error, we won't hide the MBProgressHUD
+        MBProgressHUD.hide(for: self.view, animated: true)
         refreshControl?.endRefreshing()
         tableView.reloadData()
     }
     
     fileprivate func setupTableView() {
-        tableView.register(AuctionCell.self, forCellReuseIdentifier: String(describing: AuctionCell.self))
+        tableView.register(LineStatusCell.self, forCellReuseIdentifier: String(describing: LineStatusCell.self))
         tableView.register(TimerCell.self, forCellReuseIdentifier: String(describing: TimerCell.self))
         tableView.register(SwipeExampleCell.self, forCellReuseIdentifier: String(describing: SwipeExampleCell.self))
         tableView.separatorStyle = .none
@@ -138,14 +142,14 @@ class StatusListVC: UITableViewController, Refreshable {
             cell.lineVM = lineVM
             return cell
         case .favouriteLines?:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: AuctionCell.self),
-                                                           for: indexPath) as? AuctionCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: LineStatusCell.self),
+                                                           for: indexPath) as? LineStatusCell else { return UITableViewCell() }
             cell.favourite = true
             cell.line = lineVM.favouriteLines[indexPath.row]
             return cell
         case .standardLines?:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: AuctionCell.self),
-                                                           for: indexPath) as? AuctionCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: LineStatusCell.self),
+                                                           for: indexPath) as? LineStatusCell else { return UITableViewCell() }
             cell.favourite = false
             cell.line = lineVM.standardLines[indexPath.row]
             return cell
@@ -180,7 +184,6 @@ class StatusListVC: UITableViewController, Refreshable {
                                             } else {
                                                 self.lineVM.addToFaves(lineID: lineID)
                                             }
-                                            self.lineVM.separateFaves()
                                             self.tableView.reloadSections(IndexSet(integersIn: Sections.favouriteLines.rawValue...Sections.standardLines.rawValue), with: .fade)
                                             completionHandler(true)
         })

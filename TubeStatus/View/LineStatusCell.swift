@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import TubeStatusCore
 
-class AuctionCell: UITableViewCell {
+class LineStatusCell: UITableViewCell {
 
     // MARK: - Properties
     var favourite = false

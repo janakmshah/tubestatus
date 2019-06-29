@@ -1,6 +1,0 @@
-framework module Pods_TubeStatusTests {
-  umbrella header "Pods-TubeStatusTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

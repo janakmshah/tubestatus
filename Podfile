@@ -6,9 +6,4 @@ target 'TubeStatus' do
   # Pods for TubeStatus
 pod 'MBProgressHUD', '~> 1.1.0'
 
-  target 'TubeStatusTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end
