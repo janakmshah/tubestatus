@@ -38,16 +38,16 @@ class StatusListVC: UITableViewController, Refreshable {
     }
     
     @objc fileprivate func loadStatuses() {
-        MBProgressHUD.showAdded(to: self.view, animated: true)
         let activity = viewStatusShortcut()
         self.userActivity = activity
         activity.becomeCurrent()
-        lineVM.loadAuctions(from: self)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        lineVM.loadAuctions(from: self, hideSpinner: {
+            MBProgressHUD.hide(for: self.view, animated: true)
+        })
     }
     
     @objc func refresh() {
-        //JMS TODO, if loadStatuses returns an error, we won't hide the MBProgressHUD
-        MBProgressHUD.hide(for: self.view, animated: true)
         refreshControl?.endRefreshing()
         tableView.reloadData()
     }
