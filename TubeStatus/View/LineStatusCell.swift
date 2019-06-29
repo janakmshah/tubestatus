@@ -17,12 +17,22 @@ class LineStatusCell: UITableViewCell {
         didSet {
             contentView.subviews.forEach({ $0.removeFromSuperview() })
             
-            let reason = UILabel()
-            reason.text = line.lineStatuses?.first?.prettyReason
-            reason.numberOfLines = 0
-            reason.font = .systemFont(ofSize: 15, weight: .medium)
-            reason.textColor = line.textColour
-            reason.textAlignment = .left
+//            var statusSet = Set<String>()
+//            for lineStatus in (line?.lineStatuses ?? []) {
+//                if let reason = lineStatus.prettyReason {
+//                    statusSet.insert(reason)
+//                }
+//            }
+//
+//            for status in statusSet {
+//                let reason = UILabel()
+//                reason.text = status
+//                reason.numberOfLines = 0
+//                reason.font = .systemFont(ofSize: 15, weight: .medium)
+//                reason.textColor = line.textColour
+//                reason.textAlignment = .left
+//                vStack.addArrangedSubview(reason)
+//            }
 
             let vStack = UIStackView()
             vStack.axis = .vertical
@@ -30,6 +40,13 @@ class LineStatusCell: UITableViewCell {
             vStack.alignment = .fill
             vStack.spacing = 4
             vStack.addArrangedSubview(horizontalLabelStack(stringTuple: ("\(favourite ? "★ " : "")\(line.name ?? "")", line.lineStatuses?.first?.statusSeverityDescription ?? "")))
+            
+            let reason = UILabel()
+            reason.text = line.lineStatuses?.first?.prettyReason
+            reason.numberOfLines = 0
+            reason.font = .systemFont(ofSize: 15, weight: .medium)
+            reason.textColor = line.textColour
+            reason.textAlignment = .left
             if reason.text != nil { vStack.addArrangedSubview(reason) }
             
             let roundedView = UIView()

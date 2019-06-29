@@ -14,6 +14,16 @@
 		7F4F842A22BD7467008F9183 /* LineStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F842922BD7467008F9183 /* LineStatusCell.swift */; };
 		7F7C942122C797210055466C /* TubeStatusCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C942022C7971C0055466C /* TubeStatusCore.framework */; };
 		7F7C942222C797210055466C /* TubeStatusCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C942022C7971C0055466C /* TubeStatusCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7F7C942C22C819350055466C /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C942B22C819350055466C /* IntentHandler.swift */; };
+		7F7C943422C819360055466C /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C943322C819360055466C /* IntentsUI.framework */; };
+		7F7C943722C819360055466C /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C943622C819360055466C /* IntentViewController.swift */; };
+		7F7C943A22C819360055466C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C943822C819360055466C /* MainInterface.storyboard */; };
+		7F7C943E22C819360055466C /* TubeStatusIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7F7C943222C819350055466C /* TubeStatusIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7F7C944122C819360055466C /* TubeStatusIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7F7C942922C819350055466C /* TubeStatusIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7F7C944922C819640055466C /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C944822C819640055466C /* Intents.intentdefinition */; };
+		7F7C944A22C81A690055466C /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C944822C819640055466C /* Intents.intentdefinition */; };
+		7F7C944B22C81A6A0055466C /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C944822C819640055466C /* Intents.intentdefinition */; };
+		7F7C944D22C81AED0055466C /* TubeStatusIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C944C22C81AED0055466C /* TubeStatusIntentHandler.swift */; };
 		7FB7CB2122C0158F00EC24CE /* SwipeExampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7CB2022C0158F00EC24CE /* SwipeExampleCell.swift */; };
 		7FDE45E022BF9FFF004909BE /* TimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDE45DF22BF9FFF004909BE /* TimerCell.swift */; };
 		B82A3A59217C497DEF37DD79 /* Pods_TubeStatus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DED64C5B75571A868CFF7A /* Pods_TubeStatus.framework */; };
@@ -34,6 +44,20 @@
 			remoteGlobalIDString = 7FEFF4F822C78AA50083C36F;
 			remoteInfo = TubeStatusCore;
 		};
+		7F7C943C22C819360055466C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7F4F83F722BD72ED008F9183 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7F7C943122C819350055466C;
+			remoteInfo = TubeStatusIntentUI;
+		};
+		7F7C943F22C819360055466C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7F4F83F722BD72ED008F9183 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7F7C942822C819350055466C;
+			remoteInfo = TubeStatusIntent;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +67,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				7F7C944122C819360055466C /* TubeStatusIntent.appex in Embed App Extensions */,
+				7F7C943E22C819360055466C /* TubeStatusIntentUI.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +97,16 @@
 		7F4F842922BD7467008F9183 /* LineStatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineStatusCell.swift; sourceTree = "<group>"; };
 		7F4F843C22BD7CC5008F9183 /* TubeStatus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TubeStatus-Bridging-Header.h"; sourceTree = "<group>"; };
 		7F7C941B22C7971C0055466C /* TubeStatusCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TubeStatusCore.xcodeproj; path = ../TubeStatusCore/TubeStatusCore.xcodeproj; sourceTree = "<group>"; };
+		7F7C942922C819350055466C /* TubeStatusIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TubeStatusIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F7C942B22C819350055466C /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		7F7C942D22C819350055466C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F7C943222C819350055466C /* TubeStatusIntentUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TubeStatusIntentUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F7C943322C819360055466C /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		7F7C943622C819360055466C /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		7F7C943922C819360055466C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		7F7C943B22C819360055466C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F7C944822C819640055466C /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
+		7F7C944C22C81AED0055466C /* TubeStatusIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubeStatusIntentHandler.swift; sourceTree = "<group>"; };
 		7F969EE222C41BFC00562373 /* TubeStatus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TubeStatus.entitlements; sourceTree = "<group>"; };
 		7FB7CB2022C0158F00EC24CE /* SwipeExampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeExampleCell.swift; sourceTree = "<group>"; };
 		7FDE45DF22BF9FFF004909BE /* TimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCell.swift; sourceTree = "<group>"; };
@@ -85,6 +121,21 @@
 			files = (
 				B82A3A59217C497DEF37DD79 /* Pods_TubeStatus.framework in Frameworks */,
 				7F7C942122C797210055466C /* TubeStatusCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F7C942622C819350055466C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F7C942F22C819350055466C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F7C943422C819360055466C /* IntentsUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +156,9 @@
 			children = (
 				7F7C941B22C7971C0055466C /* TubeStatusCore.xcodeproj */,
 				7F4F840122BD72ED008F9183 /* TubeStatus */,
+				7F7C944822C819640055466C /* Intents.intentdefinition */,
+				7F7C942A22C819350055466C /* TubeStatusIntent */,
+				7F7C943522C819360055466C /* TubeStatusIntentUI */,
 				7F4F840022BD72ED008F9183 /* Products */,
 				63F0FD102F1429DBE276BECC /* Pods */,
 				D8E745C08821150ED3EB20EF /* Frameworks */,
@@ -115,6 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				7F4F83FF22BD72ED008F9183 /* TubeStatus.app */,
+				7F7C942922C819350055466C /* TubeStatusIntent.appex */,
+				7F7C943222C819350055466C /* TubeStatusIntentUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -160,10 +216,31 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		7F7C942A22C819350055466C /* TubeStatusIntent */ = {
+			isa = PBXGroup;
+			children = (
+				7F7C942B22C819350055466C /* IntentHandler.swift */,
+				7F7C944C22C81AED0055466C /* TubeStatusIntentHandler.swift */,
+				7F7C942D22C819350055466C /* Info.plist */,
+			);
+			path = TubeStatusIntent;
+			sourceTree = "<group>";
+		};
+		7F7C943522C819360055466C /* TubeStatusIntentUI */ = {
+			isa = PBXGroup;
+			children = (
+				7F7C943622C819360055466C /* IntentViewController.swift */,
+				7F7C943822C819360055466C /* MainInterface.storyboard */,
+				7F7C943B22C819360055466C /* Info.plist */,
+			);
+			path = TubeStatusIntentUI;
+			sourceTree = "<group>";
+		};
 		D8E745C08821150ED3EB20EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				83DED64C5B75571A868CFF7A /* Pods_TubeStatus.framework */,
+				7F7C943322C819360055466C /* IntentsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -187,11 +264,47 @@
 			);
 			dependencies = (
 				7F7C942422C797210055466C /* PBXTargetDependency */,
+				7F7C943D22C819360055466C /* PBXTargetDependency */,
+				7F7C944022C819360055466C /* PBXTargetDependency */,
 			);
 			name = TubeStatus;
 			productName = TubeStatus;
 			productReference = 7F4F83FF22BD72ED008F9183 /* TubeStatus.app */;
 			productType = "com.apple.product-type.application";
+		};
+		7F7C942822C819350055466C /* TubeStatusIntent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F7C944522C819360055466C /* Build configuration list for PBXNativeTarget "TubeStatusIntent" */;
+			buildPhases = (
+				7F7C942522C819350055466C /* Sources */,
+				7F7C942622C819350055466C /* Frameworks */,
+				7F7C942722C819350055466C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TubeStatusIntent;
+			productName = TubeStatusIntent;
+			productReference = 7F7C942922C819350055466C /* TubeStatusIntent.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		7F7C943122C819350055466C /* TubeStatusIntentUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F7C944222C819360055466C /* Build configuration list for PBXNativeTarget "TubeStatusIntentUI" */;
+			buildPhases = (
+				7F7C942E22C819350055466C /* Sources */,
+				7F7C942F22C819350055466C /* Frameworks */,
+				7F7C943022C819350055466C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TubeStatusIntentUI;
+			productName = TubeStatusIntentUI;
+			productReference = 7F7C943222C819350055466C /* TubeStatusIntentUI.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -210,6 +323,12 @@
 								enabled = 1;
 							};
 						};
+					};
+					7F7C942822C819350055466C = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					7F7C943122C819350055466C = {
+						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
 			};
@@ -233,6 +352,8 @@
 			projectRoot = "";
 			targets = (
 				7F4F83FE22BD72ED008F9183 /* TubeStatus */,
+				7F7C942822C819350055466C /* TubeStatusIntent */,
+				7F7C943122C819350055466C /* TubeStatusIntentUI */,
 			);
 		};
 /* End PBXProject section */
@@ -254,6 +375,21 @@
 			files = (
 				7F4F840D22BD72EE008F9183 /* LaunchScreen.storyboard in Resources */,
 				7F4F840A22BD72EE008F9183 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F7C942722C819350055466C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F7C943022C819350055466C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F7C943A22C819360055466C /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,11 +442,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F7C944922C819640055466C /* Intents.intentdefinition in Sources */,
 				7FB7CB2122C0158F00EC24CE /* SwipeExampleCell.swift in Sources */,
 				7FDE45E022BF9FFF004909BE /* TimerCell.swift in Sources */,
 				7F4F842422BD73D9008F9183 /* StatusListVC.swift in Sources */,
 				7F4F840322BD72ED008F9183 /* AppDelegate.swift in Sources */,
 				7F4F842A22BD7467008F9183 /* LineStatusCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F7C942522C819350055466C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F7C944A22C81A690055466C /* Intents.intentdefinition in Sources */,
+				7F7C944D22C81AED0055466C /* TubeStatusIntentHandler.swift in Sources */,
+				7F7C942C22C819350055466C /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F7C942E22C819350055466C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F7C944B22C81A6A0055466C /* Intents.intentdefinition in Sources */,
+				7F7C943722C819360055466C /* IntentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +478,16 @@
 			name = TubeStatusCore;
 			targetProxy = 7F7C942322C797210055466C /* PBXContainerItemProxy */;
 		};
+		7F7C943D22C819360055466C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7F7C943122C819350055466C /* TubeStatusIntentUI */;
+			targetProxy = 7F7C943C22C819360055466C /* PBXContainerItemProxy */;
+		};
+		7F7C944022C819360055466C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7F7C942822C819350055466C /* TubeStatusIntent */;
+			targetProxy = 7F7C943F22C819360055466C /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -331,6 +497,14 @@
 				7F4F840C22BD72EE008F9183 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7F7C943822C819360055466C /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7F7C943922C819360055466C /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -496,6 +670,82 @@
 			};
 			name = Release;
 		};
+		7F7C944322C819360055466C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJ6558HKQT;
+				INFOPLIST_FILE = TubeStatusIntentUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appktchn.TubeStatus.TubeStatusIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7F7C944422C819360055466C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJ6558HKQT;
+				INFOPLIST_FILE = TubeStatusIntentUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appktchn.TubeStatus.TubeStatusIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7F7C944622C819360055466C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJ6558HKQT;
+				INFOPLIST_FILE = TubeStatusIntent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appktchn.TubeStatus.TubeStatusIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7F7C944722C819360055466C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJ6558HKQT;
+				INFOPLIST_FILE = TubeStatusIntent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appktchn.TubeStatus.TubeStatusIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -513,6 +763,24 @@
 			buildConfigurations = (
 				7F4F841D22BD72EE008F9183 /* Debug */,
 				7F4F841E22BD72EE008F9183 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F7C944222C819360055466C /* Build configuration list for PBXNativeTarget "TubeStatusIntentUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F7C944322C819360055466C /* Debug */,
+				7F7C944422C819360055466C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F7C944522C819360055466C /* Build configuration list for PBXNativeTarget "TubeStatusIntent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F7C944622C819360055466C /* Debug */,
+				7F7C944722C819360055466C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

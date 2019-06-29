@@ -38,13 +38,25 @@ class StatusListVC: UITableViewController, Refreshable {
     }
     
     @objc fileprivate func loadStatuses() {
-        let activity = viewStatusShortcut()
-        self.userActivity = activity
-        activity.becomeCurrent()
+        donateInteraction()
         MBProgressHUD.showAdded(to: self.view, animated: true)
         lineVM.loadAuctions(from: self, hideSpinner: {
             MBProgressHUD.hide(for: self.view, animated: true)
         })
+    }
+    
+    func donateInteraction() {
+        let intent = TubeStatusIntent()
+        intent.suggestedInvocationPhrase = "Check tube status"
+        let interaction = INInteraction(intent: intent, response: nil)
+        interaction.donate { (error) in
+            if let error = error as NSError? {
+                print("Interaction donation failed: \(error)")
+            } else {
+                print("Successfully donated interaction")
+            }
+            
+        }
     }
     
     @objc func refresh() {
@@ -76,20 +88,6 @@ class StatusListVC: UITableViewController, Refreshable {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.secondaryColour]
     }
     
-    func viewStatusShortcut() -> NSUserActivity {
-        let activity = NSUserActivity(activityType: kViewStatusActivityType)
-        activity.persistentIdentifier = NSUserActivityPersistentIdentifier(kViewStatusActivityType)
-        activity.isEligibleForSearch = true
-        activity.isEligibleForPrediction = true
-        
-        let attributes = CSSearchableItemAttributeSet(itemContentType: kUTTypeItem as String)
-        activity.title = "Check tube status"
-        attributes.contentDescription = "Check london underground for delays and service disruptions"
-        activity.suggestedInvocationPhrase = "Check tube status"
-        activity.contentAttributeSet = attributes
-
-        return activity
-    }
 
     
     // MARK: - Tableview
@@ -213,8 +211,8 @@ class StatusListVC: UITableViewController, Refreshable {
     }
     
     func setupShortcut(on button: INUIAddVoiceShortcutButton) {
-        button.shortcut = INShortcut(userActivity: viewStatusShortcut())
-        button.delegate = self
+//        button.shortcut = INShortcut(userActivity: viewStatusShortcut())
+//        button.delegate = self
     }
 
 }
