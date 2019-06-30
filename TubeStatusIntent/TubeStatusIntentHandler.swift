@@ -24,28 +24,41 @@ class TubeStatusIntentHandler: NSObject, TubeStatusIntentHandling {
             var speak = ""
             for line in self.lineVM.allLines {
                 
-                guard let descriptor = line.lineStatuses?.first?.statusSeverityDescription else { continue }
+                guard let descriptor = line.lineStatuses?.first?.statusSeverityDescription?.lowercased() else { continue }
                 guard let lineName = line.name else { continue }
                 
-                if descriptor == "Good Service" {
+                if descriptor == "good service" {
                     continue
-                }
-                
-                if descriptor == "Minor Delays" || descriptor == "Severe Delays" {
-                    speak.append("The \(lineName) line has \(descriptor.lowercased()). ")
-                }
-                
-                if descriptor == "Part Closure" {
+                } else if descriptor == "minor delays"
+                    || descriptor == "severe delays"
+                    || descriptor == "no step free access"
+                    || descriptor == "issues reported"
+                    || descriptor == "no issues" {
+                    speak.append("The \(lineName) line has \(descriptor). ")
+                } else if descriptor == "part closure" || descriptor == "part closed" {
                     speak.append("The \(lineName) line is partly closed. ")
-                }
-                
-                if descriptor == "Service Closed" {
+                } else if descriptor == "service closed" || descriptor == "closed" {
                     speak.append("The \(lineName) line is closed. ")
+                }  else if descriptor == "special service" {
+                    speak.append("The \(lineName) line is operating a special service. ")
+                } else if descriptor == "suspended"
+                    || descriptor == "part suspended"
+                    || descriptor == "exit only"
+                    || descriptor == "diverted"
+                    || descriptor == "not running" {
+                    speak.append("The \(lineName) line is \(descriptor). ")
+                }  else if descriptor == "planned closure"
+                    || descriptor == "reduced service"
+                    || descriptor == "bus service"
+                    || descriptor == "change of frequency" {
+                    speak.append("The \(lineName) line has a \(descriptor). ")
+                } else if descriptor == "information" {
+                    speak.append("There is extra information available about the \(lineName) line. ")
                 }
                 
             }
             if speak == "" {
-                speak = "Good service on all lines"
+                speak = "There is a good service on all lines"
             } else {
                 speak.append("Good service on all other lines")
             }
