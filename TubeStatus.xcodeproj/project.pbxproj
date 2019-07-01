@@ -20,6 +20,7 @@
 		7F7C944A22C81A690055466C /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C944822C819640055466C /* Intents.intentdefinition */; };
 		7F7C944D22C81AED0055466C /* TubeStatusIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C944C22C81AED0055466C /* TubeStatusIntentHandler.swift */; };
 		7FB7CB2122C0158F00EC24CE /* SwipeExampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7CB2022C0158F00EC24CE /* SwipeExampleCell.swift */; };
+		7FB9262722CAADCC00311604 /* TubeStatusCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C942022C7971C0055466C /* TubeStatusCore.framework */; };
 		7FDE45E022BF9FFF004909BE /* TimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDE45DF22BF9FFF004909BE /* TimerCell.swift */; };
 		B82A3A59217C497DEF37DD79 /* Pods_TubeStatus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DED64C5B75571A868CFF7A /* Pods_TubeStatus.framework */; };
 /* End PBXBuildFile section */
@@ -111,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FB9262722CAADCC00311604 /* TubeStatusCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,9 +545,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TubeStatus/TubeStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GJ6558HKQT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD\"",
+				);
 				INFOPLIST_FILE = TubeStatus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -565,9 +572,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TubeStatus/TubeStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GJ6558HKQT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD\"",
+				);
 				INFOPLIST_FILE = TubeStatus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -586,6 +598,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GJ6558HKQT;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = TubeStatusIntent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -605,6 +618,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GJ6558HKQT;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = TubeStatusIntent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
