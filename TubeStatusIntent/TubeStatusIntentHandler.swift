@@ -21,99 +21,55 @@ class TubeStatusIntentHandler: NSObject, TubeStatusIntentHandling {
                 return
             }
             
+            let testArray = [("Jubilee", "suspended"), ("Central", "suspended"), ("District", "suspended"), ("Circle", "suspended"), ("Northern", "severe delays"), ("Metropolitan", "severe delays")]
+            
             var speak = ""
-            var minorDelays = [String]()
-            var severeDelays = [String]()
-            var noStepFreeAccess = [String]()
-            var issuesReported = [String]()
-            var noIssues = [String]()
-            var partClosure = [String]()
-            var serviceClosed = [String]()
-            var specialService = [String]()
-            var suspended = [String]()
-            var partSuspended = [String]()
-            var exitOnly = [String]()
-            var diverted = [String]()
-            var notRunning = [String]()
-            var plannedClosure = [String]()
-            var reducedService = [String]()
-            var busService = [String]()
-            var changeOfFrequency = [String]()
-            var information = [String]()
+            let hasDescriptor = (["minor delays", "severe delays", "no step free access", "issues reported", "no issues"], "has &&&", "have &&&")
+            let isPartlyClosed = (["part closure", "part closed"], "is partly closed", "are partly closed")
+            let isClosed = (["service closed", "closed"], "is closed", "are closed")
+            let specialService = (["special service"], "is operating a special service", "are operating a special service")
+            let isDescriptor = (["suspended", "part suspended", "exit only", "diverted", "not running"], "is &&&", "are &&&")
+            let hasADescriptor = (["planned closure", "reduced service", "bus service", "change of frequency"], "has a &&&", "have a &&&")
+            
+            let allTheTuples = [hasDescriptor, isPartlyClosed, isClosed, specialService, isDescriptor, hasADescriptor]
 
-            for line in self.lineVM.allLines {
-                
-                guard let descriptor = line.lineStatuses?.first?.statusSeverityDescription?.lowercased() else { continue }
-                guard var lineName = line.name else { continue }
-                lineName = "\(lineName) line"
-                
-                if descriptor == "minor delays" {
-                    minorDelays.append(lineName)
-                } else if descriptor == "severe delays" {
-                    severeDelays.append(lineName)
-                } else if descriptor == "severe delays" {
-                    noStepFreeAccess.append(lineName)
-                } else if descriptor == "severe delays" {
-                    issuesReported.append(lineName)
-                } else if descriptor == "severe delays" {
-                    noIssues.append(lineName)
-                } else if descriptor == "severe delays" {
-                    partClosure.append(lineName)
-                } else if descriptor == "severe delays" {
-                    serviceClosed.append(lineName)
-                } else if descriptor == "severe delays" {
-                    specialService.append(lineName)
-                } else if descriptor == "severe delays" {
-                    suspended.append(lineName)
-                } else if descriptor == "severe delays" {
-                    partSuspended.append(lineName)
-                } else if descriptor == "severe delays" {
-                    exitOnly.append(lineName)
-                } else if descriptor == "severe delays" {
-                    diverted.append(lineName)
-                } else if descriptor == "severe delays" {
-                    notRunning.append(lineName)
-                } else if descriptor == "severe delays" {
-                    plannedClosure.append(lineName)
-                } else if descriptor == "severe delays" {
-                    reducedService.append(lineName)
-                } else if descriptor == "severe delays" {
-                    busService.append(lineName)
-                } else if descriptor == "severe delays" {
-                    changeOfFrequency.append(lineName)
-                } else if descriptor == "severe delays" {
-                    information.append(lineName)
+            for tuple in allTheTuples {
+                for serviceStatus in tuple.0 {
+                    var lineCollection = [String]()
+                    
+                    //for line in self.lineVM.allLines {
+                    for testLine in testArray {
+                        
+                        //guard let descriptor = line.lineStatuses?.first?.statusSeverityDescription?.lowercased() else { continue }
+                        //guard var lineName = line.name else { continue }
+                        
+                        let descriptor = testLine.1.lowercased()
+                        var lineName = testLine.0
+                        lineName = "\(lineName) line"
+                        
+                        if descriptor == "good service" {
+                            continue
+                        }
+                        
+                        if serviceStatus == descriptor {
+                            lineCollection.append(lineName)
+                        }
+                        
+                    }
+                    
+                    if lineCollection.isEmpty {
+                        continue
+                    } else if lineCollection.count == 1 {
+                        speak.append("The \(lineCollection.first!) \(tuple.1.replacingOccurrences(of: "&&&", with: serviceStatus)). ")
+                    } else if lineCollection.count >= 2 {
+                        speak.append("The ")
+                        let limit = lineCollection.count-2
+                        for i in 0..<limit {
+                            speak.append("\(lineCollection[i]), ")
+                        }
+                        speak.append("\(lineCollection[lineCollection.count-2]) and \(lineCollection.last!) \(tuple.2.replacingOccurrences(of: "&&&", with: serviceStatus)). ")
+                    }
                 }
-                
-                if descriptor == "good service" {
-                    continue
-                } else if descriptor == "minor delays"
-                    || descriptor == "severe delays"
-                    || descriptor == "no step free access"
-                    || descriptor == "issues reported"
-                    || descriptor == "no issues" {
-                    speak.append("The \(lineName) has \(descriptor). ")
-                } else if descriptor == "part closure" || descriptor == "part closed" {
-                    speak.append("The \(lineName) is partly closed. ")
-                } else if descriptor == "service closed" || descriptor == "closed" {
-                    speak.append("The \(lineName) is closed. ")
-                }  else if descriptor == "special service" {
-                    speak.append("The \(lineName) is operating a special service. ")
-                } else if descriptor == "suspended"
-                    || descriptor == "part suspended"
-                    || descriptor == "exit only"
-                    || descriptor == "diverted"
-                    || descriptor == "not running" {
-                    speak.append("The \(lineName) is \(descriptor). ")
-                }  else if descriptor == "planned closure"
-                    || descriptor == "reduced service"
-                    || descriptor == "bus service"
-                    || descriptor == "change of frequency" {
-                    speak.append("The \(lineName) has a \(descriptor). ")
-                } else if descriptor == "information" {
-                    speak.append("There is extra information available about the \(lineName). ")
-                }
-                
             }
             
             if speak == "" {
