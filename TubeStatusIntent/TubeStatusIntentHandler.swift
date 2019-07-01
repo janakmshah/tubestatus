@@ -21,7 +21,7 @@ class TubeStatusIntentHandler: NSObject, TubeStatusIntentHandling {
                 return
             }
             
-            let testArray = [("Jubilee", "suspended"), ("Central", "suspended"), ("District", "suspended"), ("Circle", "suspended"), ("Northern", "severe delays"), ("Metropolitan", "severe delays")]
+//            let testArray = [("Jubilee", "suspended"), ("Central", "suspended"), ("District", "suspended"), ("Circle", "suspended"), ("Northern", "severe delays"), ("Metropolitan", "severe delays")]
             
             var speak = ""
             let hasDescriptor = (["minor delays", "severe delays", "no step free access", "issues reported", "no issues"], "has &&&", "have &&&")
@@ -37,14 +37,15 @@ class TubeStatusIntentHandler: NSObject, TubeStatusIntentHandling {
                 for serviceStatus in tuple.0 {
                     var lineCollection = [String]()
                     
-                    //for line in self.lineVM.allLines {
-                    for testLine in testArray {
+                    for line in self.lineVM.allLines {
+                    //for testLine in testArray {
                         
-                        //guard let descriptor = line.lineStatuses?.first?.statusSeverityDescription?.lowercased() else { continue }
-                        //guard var lineName = line.name else { continue }
+                        guard let descriptor = line.lineStatuses?.first?.statusSeverityDescription?.lowercased() else { continue }
+                        guard var lineName = line.name else { continue }
                         
-                        let descriptor = testLine.1.lowercased()
-                        var lineName = testLine.0
+//                        let descriptor = testLine.1.lowercased()
+//                        var lineName = testLine.0
+                        
                         lineName = "\(lineName) line"
                         
                         if descriptor == "good service" {

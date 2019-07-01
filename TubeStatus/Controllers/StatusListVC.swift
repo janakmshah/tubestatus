@@ -7,10 +7,7 @@
 //
 
 import UIKit
-import CoreSpotlight
-import Intents
 import IntentsUI
-import MobileCoreServices
 import TubeStatusCore
 
 public let kViewStatusActivityType = "com.appktchn.TubeStatus.ViewStatus"
@@ -25,6 +22,7 @@ class StatusListVC: UITableViewController, Refreshable {
     }
     
     var lineVM = LineVM()
+    let siriButton = INUIAddVoiceShortcutButton(style: .whiteOutline)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -197,32 +195,47 @@ class StatusListVC: UITableViewController, Refreshable {
         guard section == Sections.standardLines.rawValue else {
             return UIView()
         }
-        
-        let button = INUIAddVoiceShortcutButton(style: .whiteOutline)
-        setupShortcut(on: button)
-        
         let footerView = UIView()
-        footerView.addSubview(button)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.centerXAnchor.constraint(equalTo: footerView.centerXAnchor).isActive = true
-        button.centerYAnchor.constraint(equalTo: footerView.centerYAnchor).isActive = true
-        
+        addSiriButton(to: footerView)
         return footerView
     }
     
-    func setupShortcut(on button: INUIAddVoiceShortcutButton) {
-//        button.shortcut = INShortcut(userActivity: viewStatusShortcut())
-//        button.delegate = self
+    func addSiriButton(to view: UIView) {
+        
+        siriButton.translatesAutoresizingMaskIntoConstraints = false
+
+        INVoiceShortcutCenter.shared.getAllVoiceShortcuts { [unowned self] (allVoiceShortcuts, error) in
+            if let allVoiceShortcuts = allVoiceShortcuts {
+                if let identifier = UserDefaults.standard.string(forKey: "TubeStatusIntentID"),
+                    let shortcut = allVoiceShortcuts.first(where: { (voiceShortcut) -> Bool in
+                        return voiceShortcut.shortcut.intent?.identifier == identifier
+                    })?.shortcut {
+                    self.siriButton.shortcut = shortcut
+                } else {
+                    let intent = TubeStatusIntent()
+                    intent.suggestedInvocationPhrase = "Check tube status"
+                    self.siriButton.shortcut = INShortcut(intent: intent)!
+                }
+            }
+        }
+
+        siriButton.delegate = self
+
+        view.addSubview(siriButton)
+        view.centerXAnchor.constraint(equalTo: siriButton.centerXAnchor).isActive = true
+        view.centerYAnchor.constraint(equalTo: siriButton.centerYAnchor).isActive = true
     }
 
 }
 
 extension StatusListVC: INUIAddVoiceShortcutViewControllerDelegate {
-    func addVoiceShortcutViewController(
-        _ controller: INUIAddVoiceShortcutViewController,
-        didFinishWith voiceShortcut: INVoiceShortcut?,
-        error: Error?) {
-        dismiss(animated: true, completion: nil)
+    
+    func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
+        self.siriButton.shortcut = voiceShortcut?.shortcut
+        controller.dismiss(animated: true) { () in
+            let identifier = voiceShortcut?.shortcut.intent?.identifier
+            UserDefaults.standard.set(identifier, forKey: "TubeStatusIntentID")
+        }
     }
     
     func addVoiceShortcutViewControllerDidCancel(
@@ -246,12 +259,19 @@ extension StatusListVC: INUIAddVoiceShortcutButtonDelegate {
 }
 
 extension StatusListVC: INUIEditVoiceShortcutViewControllerDelegate {
-    func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didUpdate voiceShortcut: INVoiceShortcut?, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
-    }
     
     func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didDeleteVoiceShortcutWithIdentifier deletedVoiceShortcutIdentifier: UUID) {
-        controller.dismiss(animated: true, completion: nil)
+        controller.dismiss(animated: true) { () in
+            UserDefaults.standard.removeObject(forKey: "TubeStatusIntentID")
+        }
+    }
+    
+    func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didUpdate voiceShortcut: INVoiceShortcut?, error: Error?) {
+        self.siriButton.shortcut = voiceShortcut?.shortcut
+        controller.dismiss(animated: true) { () in
+            let identifier = voiceShortcut?.shortcut.intent?.identifier
+            UserDefaults.standard.set(identifier, forKey: "TubeStatusIntentID")
+        }
     }
     
     func editVoiceShortcutViewControllerDidCancel(_ controller: INUIEditVoiceShortcutViewController) {
