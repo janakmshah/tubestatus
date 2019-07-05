@@ -49,24 +49,13 @@ class LineStatusCell: UITableViewCell {
             reason.textAlignment = .left
             if reason.text != nil { vStack.addArrangedSubview(reason) }
             
-            let roundedView = UIView()
-            //roundedView.layer.cornerRadius = 4
-            roundedView.clipsToBounds = true
-            roundedView.backgroundColor = line.mainColour
-            
-            contentView.addSubview(roundedView)
-            roundedView.translatesAutoresizingMaskIntoConstraints = false
-            roundedView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
-            roundedView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
-            roundedView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 0).isActive = true
-            roundedView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0).isActive = true
-            
-            roundedView.addSubview(vStack)
+            contentView.backgroundColor = line.mainColour
+            contentView.addSubview(vStack)
             vStack.translatesAutoresizingMaskIntoConstraints = false
-            vStack.topAnchor.constraint(equalTo: roundedView.topAnchor, constant: 16).isActive = true
-            vStack.bottomAnchor.constraint(equalTo: roundedView.bottomAnchor, constant: -16).isActive = true
-            vStack.leftAnchor.constraint(equalTo: roundedView.leftAnchor, constant: 16).isActive = true
-            vStack.rightAnchor.constraint(equalTo: roundedView.rightAnchor, constant: -16).isActive = true
+            vStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16).isActive = true
+            vStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
+            vStack.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16).isActive = true
+            vStack.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16).isActive = true
         }
     }
     
