@@ -19,6 +19,12 @@
 		7F7C944922C819640055466C /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C944822C819640055466C /* Intents.intentdefinition */; };
 		7F7C944A22C81A690055466C /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C944822C819640055466C /* Intents.intentdefinition */; };
 		7F7C944D22C81AED0055466C /* TubeStatusIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C944C22C81AED0055466C /* TubeStatusIntentHandler.swift */; };
+		7FAA278322D12ACD007AAEA7 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE233DF22CFF4D1008D0253 /* NotificationCenter.framework */; };
+		7FAA278622D12ACD007AAEA7 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA278522D12ACD007AAEA7 /* TodayViewController.swift */; };
+		7FAA278922D12ACD007AAEA7 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FAA278722D12ACD007AAEA7 /* MainInterface.storyboard */; };
+		7FAA278D22D12ACD007AAEA7 /* SimpleTodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7FAA278222D12ACD007AAEA7 /* SimpleTodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7FAA279122D13142007AAEA7 /* TubeStatusCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C942022C7971C0055466C /* TubeStatusCore.framework */; };
+		7FAA279222D13147007AAEA7 /* TubeStatusCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C942022C7971C0055466C /* TubeStatusCore.framework */; };
 		7FB7CB2122C0158F00EC24CE /* SwipeExampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7CB2022C0158F00EC24CE /* SwipeExampleCell.swift */; };
 		7FB9262722CAADCC00311604 /* TubeStatusCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C942022C7971C0055466C /* TubeStatusCore.framework */; };
 		7FDE45E022BF9FFF004909BE /* TimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDE45DF22BF9FFF004909BE /* TimerCell.swift */; };
@@ -51,6 +57,13 @@
 			remoteGlobalIDString = 7F7C942822C819350055466C;
 			remoteInfo = TubeStatusIntent;
 		};
+		7FAA278B22D12ACD007AAEA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7F4F83F722BD72ED008F9183 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7FAA278122D12ACD007AAEA7;
+			remoteInfo = SimpleTodayWidget;
+		};
 		7FE233FB22CFF605008D0253 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7F4F83F722BD72ED008F9183 /* Project object */;
@@ -67,6 +80,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				7FAA278D22D12ACD007AAEA7 /* SimpleTodayWidget.appex in Embed App Extensions */,
 				7FE233FD22CFF605008D0253 /* TodayWIdget.appex in Embed App Extensions */,
 				7F7C944122C819360055466C /* TubeStatusIntent.appex in Embed App Extensions */,
 			);
@@ -106,6 +120,10 @@
 		7F969EE222C41BFC00562373 /* TubeStatus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TubeStatus.entitlements; sourceTree = "<group>"; };
 		7FAA277C22D1259A007AAEA7 /* TubeStatusIntent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TubeStatusIntent.entitlements; sourceTree = "<group>"; };
 		7FAA277D22D125A2007AAEA7 /* TodayWIdget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayWIdget.entitlements; sourceTree = "<group>"; };
+		7FAA278222D12ACD007AAEA7 /* SimpleTodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SimpleTodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FAA278522D12ACD007AAEA7 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		7FAA278822D12ACD007AAEA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		7FAA278A22D12ACD007AAEA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FB7CB2022C0158F00EC24CE /* SwipeExampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeExampleCell.swift; sourceTree = "<group>"; };
 		7FDE45DF22BF9FFF004909BE /* TimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCell.swift; sourceTree = "<group>"; };
 		7FE233DF22CFF4D1008D0253 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -135,10 +153,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7FAA277F22D12ACD007AAEA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FAA279122D13142007AAEA7 /* TubeStatusCore.framework in Frameworks */,
+				7FAA278322D12ACD007AAEA7 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7FE233EF22CFF605008D0253 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FAA279222D13147007AAEA7 /* TubeStatusCore.framework in Frameworks */,
 				7FE233F322CFF605008D0253 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,6 +191,7 @@
 				7F7C944822C819640055466C /* Intents.intentdefinition */,
 				7F7C942A22C819350055466C /* TubeStatusIntent */,
 				7FE233F422CFF605008D0253 /* TodayWIdget */,
+				7FAA278422D12ACD007AAEA7 /* SimpleTodayWidget */,
 				7F4F840022BD72ED008F9183 /* Products */,
 				63F0FD102F1429DBE276BECC /* Pods */,
 				D8E745C08821150ED3EB20EF /* Frameworks */,
@@ -175,6 +204,7 @@
 				7F4F83FF22BD72ED008F9183 /* TubeStatus.app */,
 				7F7C942922C819350055466C /* TubeStatusIntent.appex */,
 				7FE233F222CFF605008D0253 /* TodayWIdget.appex */,
+				7FAA278222D12ACD007AAEA7 /* SimpleTodayWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -231,6 +261,16 @@
 			path = TubeStatusIntent;
 			sourceTree = "<group>";
 		};
+		7FAA278422D12ACD007AAEA7 /* SimpleTodayWidget */ = {
+			isa = PBXGroup;
+			children = (
+				7FAA278522D12ACD007AAEA7 /* TodayViewController.swift */,
+				7FAA278722D12ACD007AAEA7 /* MainInterface.storyboard */,
+				7FAA278A22D12ACD007AAEA7 /* Info.plist */,
+			);
+			path = SimpleTodayWidget;
+			sourceTree = "<group>";
+		};
 		7FE233F422CFF605008D0253 /* TodayWIdget */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +313,7 @@
 				7F7C942422C797210055466C /* PBXTargetDependency */,
 				7F7C944022C819360055466C /* PBXTargetDependency */,
 				7FE233FC22CFF605008D0253 /* PBXTargetDependency */,
+				7FAA278C22D12ACD007AAEA7 /* PBXTargetDependency */,
 			);
 			name = TubeStatus;
 			productName = TubeStatus;
@@ -294,6 +335,23 @@
 			name = TubeStatusIntent;
 			productName = TubeStatusIntent;
 			productReference = 7F7C942922C819350055466C /* TubeStatusIntent.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		7FAA278122D12ACD007AAEA7 /* SimpleTodayWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FAA278E22D12ACD007AAEA7 /* Build configuration list for PBXNativeTarget "SimpleTodayWidget" */;
+			buildPhases = (
+				7FAA277E22D12ACD007AAEA7 /* Sources */,
+				7FAA277F22D12ACD007AAEA7 /* Frameworks */,
+				7FAA278022D12ACD007AAEA7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleTodayWidget;
+			productName = SimpleTodayWidget;
+			productReference = 7FAA278222D12ACD007AAEA7 /* SimpleTodayWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		7FE233F122CFF605008D0253 /* TodayWIdget */ = {
@@ -342,6 +400,9 @@
 							};
 						};
 					};
+					7FAA278122D12ACD007AAEA7 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 					7FE233F122CFF605008D0253 = {
 						CreatedOnToolsVersion = 10.2.1;
 						SystemCapabilities = {
@@ -374,6 +435,7 @@
 				7F4F83FE22BD72ED008F9183 /* TubeStatus */,
 				7F7C942822C819350055466C /* TubeStatusIntent */,
 				7FE233F122CFF605008D0253 /* TodayWIdget */,
+				7FAA278122D12ACD007AAEA7 /* SimpleTodayWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -402,6 +464,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FAA278022D12ACD007AAEA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FAA278922D12ACD007AAEA7 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +551,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7FAA277E22D12ACD007AAEA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FAA278622D12ACD007AAEA7 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7FE233EE22CFF605008D0253 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -502,6 +580,11 @@
 			target = 7F7C942822C819350055466C /* TubeStatusIntent */;
 			targetProxy = 7F7C943F22C819360055466C /* PBXContainerItemProxy */;
 		};
+		7FAA278C22D12ACD007AAEA7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7FAA278122D12ACD007AAEA7 /* SimpleTodayWidget */;
+			targetProxy = 7FAA278B22D12ACD007AAEA7 /* PBXContainerItemProxy */;
+		};
 		7FE233FC22CFF605008D0253 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7FE233F122CFF605008D0253 /* TodayWIdget */;
@@ -516,6 +599,14 @@
 				7F4F840C22BD72EE008F9183 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7FAA278722D12ACD007AAEA7 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FAA278822D12ACD007AAEA7 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		7FE233F722CFF605008D0253 /* MainInterface.storyboard */ = {
@@ -741,6 +832,44 @@
 			};
 			name = Release;
 		};
+		7FAA278F22D12ACD007AAEA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJ6558HKQT;
+				INFOPLIST_FILE = SimpleTodayWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appktchn.TubeStatus.SimpleTodayWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7FAA279022D12ACD007AAEA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJ6558HKQT;
+				INFOPLIST_FILE = SimpleTodayWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appktchn.TubeStatus.SimpleTodayWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		7FE233FF22CFF605008D0253 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -807,6 +936,15 @@
 			buildConfigurations = (
 				7F7C944622C819360055466C /* Debug */,
 				7F7C944722C819360055466C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FAA278E22D12ACD007AAEA7 /* Build configuration list for PBXNativeTarget "SimpleTodayWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FAA278F22D12ACD007AAEA7 /* Debug */,
+				7FAA279022D12ACD007AAEA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
