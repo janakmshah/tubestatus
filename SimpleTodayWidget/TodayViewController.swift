@@ -106,7 +106,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
         
         if speak == NSMutableAttributedString(string: "") {
-            speak = NSMutableAttributedString(string: "There is a good service on all lines.", attributes: regularFont)
+            speak = NSMutableAttributedString(string: "There is a good service on all lines 🎉", attributes: regularFont)
         } else {
             speak.append(NSAttributedString(string: "Good service on all other lines.", attributes: regularFont))
         }
