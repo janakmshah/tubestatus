@@ -12,9 +12,10 @@ import TubeStatusCore
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     
-    var lineVM = LineVM()
-    var vStack = UIStackView()
-    var bottomButton = UIButton()
+    let lineVM = LineVM()
+    let vStack = UIStackView()
+    let bottomButton = UIButton()
+    let allButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,26 +23,44 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         addButtonToBottom()
         
+        allButton.addTarget(self, action: #selector(openApp), for: .touchUpInside)
+        view.addSubview(allButton)
+        allButton.translatesAutoresizingMaskIntoConstraints = false
+        allButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        allButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        allButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        allButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
         extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     }
     
     func updateViews() {
         vStack.removeFromSuperview()
-        vStack = UIStackView()
         vStack.axis = .vertical
         vStack.distribution = .equalSpacing
         vStack.alignment = .fill
         vStack.spacing = 0
         
-        for line in self.lineVM.allLines {
+        for line in self.lineVM.favouriteLines {
             guard let statusDescriptor = line.lineStatuses?.first?.statusSeverityDescription else { continue }
             guard var lineName = line.name else { continue }
             
-            if UIScreen.main.bounds.size.width <= 320 {
+            if UIScreen.main.bounds.size.width <= 375 {
                 if lineName == "London Overground" { lineName = "Overground" }
-                if lineName == "Hammersmith & City" { lineName = "Ham & City" }
+                if lineName == "Hammersmith & City" { lineName = "Hamrsth & City" }
             }
+            lineName = "★ " + lineName
+            vStack.addArrangedSubview(self.horizontalLabelStack(stringTuple: (lineName, statusDescriptor), line: line))
+        }
+        
+        for line in self.lineVM.standardLines {
+            guard let statusDescriptor = line.lineStatuses?.first?.statusSeverityDescription else { continue }
+            guard var lineName = line.name else { continue }
             
+            if UIScreen.main.bounds.size.width <= 375 {
+                if lineName == "London Overground" { lineName = "Overground" }
+                if lineName == "Hammersmith & City" { lineName = "Hamrsth & City" }
+            }
             vStack.addArrangedSubview(self.horizontalLabelStack(stringTuple: (lineName, statusDescriptor), line: line))
         }
         
@@ -52,6 +71,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         vStack.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
         
         view.bringSubviewToFront(bottomButton)
+        view.bringSubviewToFront(allButton)
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
@@ -72,16 +92,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         let expanded = activeDisplayMode == .expanded
         bottomButton.isHidden = !expanded
-        preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 800) : maxSize
+        preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 486) : maxSize
     }
     
     private func addButtonToBottom() {
-        bottomButton = UIButton()
         bottomButton.backgroundColor = .white
         bottomButton.setTitle("• Further details", for: .normal)
         bottomButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
         bottomButton.setTitleColor(.secondaryColour, for: .normal)
-        bottomButton.addTarget(self, action: #selector(openApp), for: .touchUpInside)
+        bottomButton.isUserInteractionEnabled = false
         
         view.addSubview(bottomButton)
         bottomButton.translatesAutoresizingMaskIntoConstraints = false
