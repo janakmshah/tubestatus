@@ -33,20 +33,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         vStack.alignment = .fill
         vStack.spacing = 0
         
-        var arrayDicts = [String:[String]]()
-        
         for line in self.lineVM.allLines {
             guard let statusDescriptor = line.lineStatuses?.first?.statusSeverityDescription else { continue }
-            guard let lineName = line.name else { continue }
-            if statusDescriptor.lowercased() == "good service" { continue }
-            arrayDicts[statusDescriptor] = (arrayDicts[statusDescriptor] ?? []) + [lineName]
+            guard var lineName = line.name else { continue }
+            
+            if UIScreen.main.bounds.size.width <= 320 {
+                if lineName == "London Overground" { lineName = "Overground" }
+                if lineName == "Hammersmith & City" { lineName = "Ham & City" }
+            }
+            
+            vStack.addArrangedSubview(self.horizontalLabelStack(stringTuple: (lineName, statusDescriptor), line: line))
         }
-        
-        for dict in arrayDicts {
-            vStack.addArrangedSubview(self.horizontalLabelStack(stringTuple: (dict.value.joined(separator: ", "), dict.key)))
-        }
-        
-        vStack.addArrangedSubview(self.horizontalLabelStack(stringTuple: (arrayDicts.count == 0 ? "All lines" : "All Other Lines", "Good Service")))
         
         self.view.addSubview(vStack)
         vStack.translatesAutoresizingMaskIntoConstraints = false
@@ -54,19 +51,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         vStack.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         vStack.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
         
-        view.addSubview(bottomButton)
-        bottomButton.translatesAutoresizingMaskIntoConstraints = false
-        bottomButton.topAnchor.constraint(equalTo: vStack.bottomAnchor, constant: 6).isActive = true
-        bottomButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        view.bringSubviewToFront(bottomButton)
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-        
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-        
         lineVM.fetchLineStatuses { [weak self] (error) in
             if let _ = error {
                 completionHandler(NCUpdateResult.failed)
@@ -79,38 +67,35 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             self.updateViews()
             completionHandler(NCUpdateResult.newData)
         }
-        
     }
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         let expanded = activeDisplayMode == .expanded
         bottomButton.isHidden = !expanded
-        preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 500) : maxSize
+        preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 800) : maxSize
     }
     
     private func addButtonToBottom() {
-        let value = UILabel()
-        value.text = "Further details"
-        value.textAlignment = .left
-        value.font = .systemFont(ofSize: 14, weight: .bold)
-        value.textColor = .secondaryColour
-        value.numberOfLines = 0
-        value.isUserInteractionEnabled = false
-        
         bottomButton = UIButton()
-        bottomButton.layer.cornerRadius = 10
-        bottomButton.clipsToBounds = true
         bottomButton.backgroundColor = .white
+        bottomButton.setTitle("• Further details", for: .normal)
+        bottomButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
+        bottomButton.setTitleColor(.secondaryColour, for: .normal)
+        bottomButton.addTarget(self, action: #selector(openApp), for: .touchUpInside)
         
-        bottomButton.addSubview(value)
-        value.translatesAutoresizingMaskIntoConstraints = false
-        value.topAnchor.constraint(equalTo: bottomButton.topAnchor, constant: 3).isActive = true
-        value.bottomAnchor.constraint(equalTo: bottomButton.bottomAnchor, constant: -3).isActive = true
-        value.leftAnchor.constraint(equalTo: bottomButton.leftAnchor, constant: 12).isActive = true
-        value.rightAnchor.constraint(equalTo: bottomButton.rightAnchor, constant: -12).isActive = true
+        view.addSubview(bottomButton)
+        bottomButton.translatesAutoresizingMaskIntoConstraints = false
+        bottomButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        bottomButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        bottomButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        bottomButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
     }
     
-    func horizontalLabelStack(stringTuple: (String?, String?)) -> UIView {
+    @objc func openApp() {
+        extensionContext?.open(URL(string: "tubeStatus://")! , completionHandler: nil)
+    }
+    
+    func horizontalLabelStack(stringTuple: (String?, String?), line: Line) -> UIView {
         let hStack = UIStackView()
         hStack.translatesAutoresizingMaskIntoConstraints = false
         hStack.axis = .horizontal
@@ -122,7 +107,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         label.text = stringTuple.0
         label.textAlignment = .left
         label.font = .systemFont(ofSize: 16, weight: .bold)
-        label.textColor = .secondaryColour
+        label.textColor = line.textColour
         label.numberOfLines = 0
         hStack.addArrangedSubview(label)
         
@@ -153,6 +138,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         containerView.bottomAnchor.constraint(equalTo: hStack.bottomAnchor, constant: 6).isActive = true
         containerView.leftAnchor.constraint(equalTo: hStack.leftAnchor, constant: -8).isActive = true
         containerView.rightAnchor.constraint(equalTo: hStack.rightAnchor, constant: 8).isActive = true
+        containerView.backgroundColor = line.mainColour
         
         return containerView
     }
