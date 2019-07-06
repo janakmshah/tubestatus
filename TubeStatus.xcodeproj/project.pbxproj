@@ -104,6 +104,8 @@
 		7F7C944822C819640055466C /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		7F7C944C22C81AED0055466C /* TubeStatusIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubeStatusIntentHandler.swift; sourceTree = "<group>"; };
 		7F969EE222C41BFC00562373 /* TubeStatus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TubeStatus.entitlements; sourceTree = "<group>"; };
+		7FAA277C22D1259A007AAEA7 /* TubeStatusIntent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TubeStatusIntent.entitlements; sourceTree = "<group>"; };
+		7FAA277D22D125A2007AAEA7 /* TodayWIdget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayWIdget.entitlements; sourceTree = "<group>"; };
 		7FB7CB2022C0158F00EC24CE /* SwipeExampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeExampleCell.swift; sourceTree = "<group>"; };
 		7FDE45DF22BF9FFF004909BE /* TimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCell.swift; sourceTree = "<group>"; };
 		7FE233DF22CFF4D1008D0253 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -221,6 +223,7 @@
 		7F7C942A22C819350055466C /* TubeStatusIntent */ = {
 			isa = PBXGroup;
 			children = (
+				7FAA277C22D1259A007AAEA7 /* TubeStatusIntent.entitlements */,
 				7F7C942B22C819350055466C /* IntentHandler.swift */,
 				7F7C944C22C81AED0055466C /* TubeStatusIntentHandler.swift */,
 				7F7C942D22C819350055466C /* Info.plist */,
@@ -231,6 +234,7 @@
 		7FE233F422CFF605008D0253 /* TodayWIdget */ = {
 			isa = PBXGroup;
 			children = (
+				7FAA277D22D125A2007AAEA7 /* TodayWIdget.entitlements */,
 				7FE233F522CFF605008D0253 /* TodayViewController.swift */,
 				7FE233F722CFF605008D0253 /* MainInterface.storyboard */,
 				7FE233FA22CFF605008D0253 /* Info.plist */,
@@ -322,6 +326,9 @@
 					7F4F83FE22BD72ED008F9183 = {
 						CreatedOnToolsVersion = 10.2.1;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.Siri = {
 								enabled = 1;
 							};
@@ -329,9 +336,19 @@
 					};
 					7F7C942822C819350055466C = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					7FE233F122CFF605008D0253 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -685,6 +702,7 @@
 		7F7C944622C819360055466C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TubeStatusIntent/TubeStatusIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GJ6558HKQT;
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -705,6 +723,7 @@
 		7F7C944722C819360055466C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TubeStatusIntent/TubeStatusIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GJ6558HKQT;
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -725,6 +744,7 @@
 		7FE233FF22CFF605008D0253 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TodayWIdget/TodayWIdget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GJ6558HKQT;
 				INFOPLIST_FILE = TodayWIdget/Info.plist;
@@ -744,6 +764,7 @@
 		7FE2340022CFF605008D0253 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TodayWIdget/TodayWIdget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GJ6558HKQT;
 				INFOPLIST_FILE = TodayWIdget/Info.plist;
