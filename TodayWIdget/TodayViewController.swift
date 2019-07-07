@@ -12,6 +12,9 @@ import TubeStatusCore
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     
+    @IBOutlet weak var loadingLabel: UILabel!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    
     let lineVM = LineVM()
     let vStack = UIStackView()
     let bottomButton = UIButton()
@@ -20,6 +23,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        loadingLabel.font = .systemFont(ofSize: 13, weight: .medium)
+        loadingLabel.isUserInteractionEnabled = false
         
         addButtonToBottom()
         
@@ -75,15 +80,31 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        
+        self.indicatorView.startAnimating()
+        self.indicatorView.isHidden = false
+        self.loadingLabel.textAlignment = .center
+        self.loadingLabel.attributedText = nil
+        self.loadingLabel.text = "Loading..."
+        self.loadingLabel.textColor = .gray
+        
         lineVM.fetchLineStatuses { [weak self] (error) in
-            if let _ = error {
-                completionHandler(NCUpdateResult.failed)
-                return
-            }
+            
             guard let self = self else {
                 completionHandler(NCUpdateResult.failed)
                 return
             }
+            
+            self.indicatorView.stopAnimating()
+            self.indicatorView.isHidden = true
+            
+            if let _ = error {
+                self.loadingLabel.text = "Unable to load"
+                completionHandler(NCUpdateResult.failed)
+                return
+            }
+
+            self.loadingLabel.isHidden = true
             self.updateViews()
             completionHandler(NCUpdateResult.newData)
         }

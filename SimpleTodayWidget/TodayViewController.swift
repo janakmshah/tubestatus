@@ -42,7 +42,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         self.label.attributedText = nil
         self.label.text = "Loading..."
         self.label.textColor = .gray
-        lineVM.fetchLineStatuses { (error) in
+        lineVM.fetchLineStatuses { [weak self] (error) in
+            
+            guard let self = self else {
+                completionHandler(NCUpdateResult.failed)
+                return
+            }
+            
             if let _ = error {
                 self.label.text = "Unable to load"
                 completionHandler(NCUpdateResult.failed)
