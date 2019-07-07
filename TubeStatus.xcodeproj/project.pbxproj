@@ -26,6 +26,8 @@
 		7FAA279122D13142007AAEA7 /* TubeStatusCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C942022C7971C0055466C /* TubeStatusCore.framework */; };
 		7FAA279222D13147007AAEA7 /* TubeStatusCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C942022C7971C0055466C /* TubeStatusCore.framework */; };
 		7FB7CB2122C0158F00EC24CE /* SwipeExampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7CB2022C0158F00EC24CE /* SwipeExampleCell.swift */; };
+		7FB875C022D29A43001C184E /* SchedulerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB875BF22D29A43001C184E /* SchedulerVC.swift */; };
+		7FB875C222D29BF3001C184E /* ReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB875C122D29BF3001C184E /* ReminderCell.swift */; };
 		7FB9262722CAADCC00311604 /* TubeStatusCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C942022C7971C0055466C /* TubeStatusCore.framework */; };
 		7FDE45E022BF9FFF004909BE /* TimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDE45DF22BF9FFF004909BE /* TimerCell.swift */; };
 		7FE233F322CFF605008D0253 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE233DF22CFF4D1008D0253 /* NotificationCenter.framework */; };
@@ -125,6 +127,8 @@
 		7FAA278822D12ACD007AAEA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		7FAA278A22D12ACD007AAEA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FB7CB2022C0158F00EC24CE /* SwipeExampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeExampleCell.swift; sourceTree = "<group>"; };
+		7FB875BF22D29A43001C184E /* SchedulerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulerVC.swift; sourceTree = "<group>"; };
+		7FB875C122D29BF3001C184E /* ReminderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderCell.swift; sourceTree = "<group>"; };
 		7FDE45DF22BF9FFF004909BE /* TimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCell.swift; sourceTree = "<group>"; };
 		7FE233DF22CFF4D1008D0253 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		7FE233F222CFF605008D0253 /* TodayWIdget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayWIdget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				7F4F842322BD73D9008F9183 /* StatusListVC.swift */,
+				7FB875BF22D29A43001C184E /* SchedulerVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				7F4F842922BD7467008F9183 /* LineStatusCell.swift */,
+				7FB875C122D29BF3001C184E /* ReminderCell.swift */,
 				7FDE45DF22BF9FFF004909BE /* TimerCell.swift */,
 				7FB7CB2022C0158F00EC24CE /* SwipeExampleCell.swift */,
 			);
@@ -535,7 +541,9 @@
 				7F7C944922C819640055466C /* Intents.intentdefinition in Sources */,
 				7FB7CB2122C0158F00EC24CE /* SwipeExampleCell.swift in Sources */,
 				7FDE45E022BF9FFF004909BE /* TimerCell.swift in Sources */,
+				7FB875C222D29BF3001C184E /* ReminderCell.swift in Sources */,
 				7F4F842422BD73D9008F9183 /* StatusListVC.swift in Sources */,
+				7FB875C022D29A43001C184E /* SchedulerVC.swift in Sources */,
 				7F4F840322BD72ED008F9183 /* AppDelegate.swift in Sources */,
 				7F4F842A22BD7467008F9183 /* LineStatusCell.swift in Sources */,
 			);

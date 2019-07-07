@@ -15,9 +15,7 @@ class SwipeExampleCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
+    func setupCell() {
         selectionStyle = .none
         self.backgroundColor = .clear
         contentView.backgroundColor = .secondaryColour

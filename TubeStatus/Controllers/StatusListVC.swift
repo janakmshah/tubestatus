@@ -137,6 +137,7 @@ class StatusListVC: UITableViewController, Refreshable {
         case .example?:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SwipeExampleCell.self),
                                                            for: indexPath) as? SwipeExampleCell else { return UITableViewCell() }
+            cell.setupCell()
             return cell
         case .timer?:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TimerCell.self),
@@ -208,8 +209,6 @@ class StatusListVC: UITableViewController, Refreshable {
     
     func addSiriButton(to view: UIView) {
         
-        siriButton.translatesAutoresizingMaskIntoConstraints = false
-
         INVoiceShortcutCenter.shared.getAllVoiceShortcuts { [unowned self] (allVoiceShortcuts, error) in
             if let allVoiceShortcuts = allVoiceShortcuts {
                 if let identifier = UserDefaults.standard.string(forKey: "TubeStatusIntentID"),
@@ -226,10 +225,36 @@ class StatusListVC: UITableViewController, Refreshable {
         }
 
         siriButton.delegate = self
-
-        view.addSubview(siriButton)
-        view.centerXAnchor.constraint(equalTo: siriButton.centerXAnchor).isActive = true
-        view.centerYAnchor.constraint(equalTo: siriButton.centerYAnchor).isActive = true
+        
+        let containerView = UIView()
+        view.addSubview(containerView)
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        view.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+        view.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        
+        siriButton.translatesAutoresizingMaskIntoConstraints = false
+        containerView.addSubview(siriButton)
+        
+        let notificationsButton = UIButton()
+        notificationsButton.layer.cornerRadius = 13
+        notificationsButton.backgroundColor = .secondaryColour
+        notificationsButton.translatesAutoresizingMaskIntoConstraints = false
+        notificationsButton.addTarget(self, action: #selector(showNotificationsScreen), for: .touchUpInside)
+        containerView.addSubview(notificationsButton)
+        
+        containerView.trailingAnchor.constraint(equalTo: siriButton.trailingAnchor).isActive = true
+        containerView.topAnchor.constraint(equalTo: siriButton.topAnchor).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: siriButton.bottomAnchor).isActive = true
+        notificationsButton.trailingAnchor.constraint(equalTo: siriButton.leadingAnchor, constant: -8).isActive = true
+        containerView.leadingAnchor.constraint(equalTo: notificationsButton.leadingAnchor).isActive = true
+        notificationsButton.widthAnchor.constraint(equalToConstant: 149).isActive = true
+        containerView.topAnchor.constraint(equalTo: notificationsButton.topAnchor).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: notificationsButton.bottomAnchor).isActive = true
+        
+    }
+    
+    @objc func showNotificationsScreen() {
+        self.show(SchedulerVC(), sender: self)
     }
 
 }
