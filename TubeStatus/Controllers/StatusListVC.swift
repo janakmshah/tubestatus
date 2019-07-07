@@ -9,6 +9,7 @@
 import UIKit
 import IntentsUI
 import TubeStatusCore
+import StoreKit
 
 public let kViewStatusActivityType = "com.appktchn.TubeStatus.ViewStatus"
 
@@ -60,6 +61,11 @@ class StatusListVC: UITableViewController, Refreshable {
     @objc func refresh() {
         refreshControl?.endRefreshing()
         tableView.reloadData()
+        let defaults = UserDefaults.standard
+        let count = defaults.integer(forKey: "activeCount")
+        if count % 15 == 0 {
+            SKStoreReviewController.requestReview()
+        }
     }
     
     fileprivate func setupTableView() {

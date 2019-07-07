@@ -33,6 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
+        let defaults = UserDefaults.standard
+        var count = defaults.integer(forKey: "activeCount")
+        count = count + 1
+        defaults.set(count, forKey: "activeCount")
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
