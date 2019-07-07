@@ -20,11 +20,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        label.textAlignment = .left
         label.font = .systemFont(ofSize: 13)
-        label.textColor = .darkText
-        label.text = ""
-        label.attributedText = nil
         label.isUserInteractionEnabled = false
         
         let allButton = UIButton()
@@ -42,11 +38,18 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        self.label.textAlignment = .center
+        self.label.attributedText = nil
+        self.label.text = "Loading..."
+        self.label.textColor = .gray
         lineVM.fetchLineStatuses { (error) in
             if let _ = error {
+                self.label.text = "Unable to load"
                 completionHandler(NCUpdateResult.failed)
                 return
             }
+            self.label.textAlignment = .left
+            self.label.textColor = .darkText
             self.updateLabel()
             completionHandler(NCUpdateResult.newData)
         }
@@ -111,6 +114,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             speak.append(NSAttributedString(string: "Good service on all other lines.", attributes: regularFont))
         }
         
+        label.text = nil
         label.attributedText = speak
         
     }
