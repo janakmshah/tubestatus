@@ -65,6 +65,7 @@ class StatusListVC: UITableViewController, Refreshable {
         let count = defaults.integer(forKey: "activeCount")
         if count % 15 == 0 {
             SKStoreReviewController.requestReview()
+            defaults.set(count + 1, forKey: "activeCount")
         }
     }
     

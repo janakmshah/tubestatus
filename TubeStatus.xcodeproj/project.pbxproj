@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F19719522D68EA4009F3158 /* ReminderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F19719422D68EA4009F3158 /* ReminderVM.swift */; };
 		7F4F840322BD72ED008F9183 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F840222BD72ED008F9183 /* AppDelegate.swift */; };
 		7F4F840A22BD72EE008F9183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F840922BD72EE008F9183 /* Assets.xcassets */; };
 		7F4F840D22BD72EE008F9183 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F840B22BD72EE008F9183 /* LaunchScreen.storyboard */; };
@@ -104,6 +105,7 @@
 
 /* Begin PBXFileReference section */
 		166476670031A3C074139446 /* Pods-TubeStatus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TubeStatus.release.xcconfig"; path = "Target Support Files/Pods-TubeStatus/Pods-TubeStatus.release.xcconfig"; sourceTree = "<group>"; };
+		7F19719422D68EA4009F3158 /* ReminderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderVM.swift; sourceTree = "<group>"; };
 		7F4F83FF22BD72ED008F9183 /* TubeStatus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TubeStatus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4F840222BD72ED008F9183 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F4F840922BD72EE008F9183 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -187,6 +189,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7F19719322D68E80009F3158 /* ReminderModel */ = {
+			isa = PBXGroup;
+			children = (
+				7F19719422D68EA4009F3158 /* ReminderVM.swift */,
+			);
+			path = ReminderModel;
+			sourceTree = "<group>";
+		};
 		7F4F83F622BD72ED008F9183 = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +228,7 @@
 			children = (
 				7F969EE222C41BFC00562373 /* TubeStatus.entitlements */,
 				7F4F840222BD72ED008F9183 /* AppDelegate.swift */,
+				7F19719322D68E80009F3158 /* ReminderModel */,
 				7F4F842222BD7326008F9183 /* Controllers */,
 				7F4F842822BD7467008F9183 /* View */,
 				7F4F840922BD72EE008F9183 /* Assets.xcassets */,
@@ -543,6 +554,7 @@
 				7FDE45E022BF9FFF004909BE /* TimerCell.swift in Sources */,
 				7FB875C222D29BF3001C184E /* ReminderCell.swift in Sources */,
 				7F4F842422BD73D9008F9183 /* StatusListVC.swift in Sources */,
+				7F19719522D68EA4009F3158 /* ReminderVM.swift in Sources */,
 				7FB875C022D29A43001C184E /* SchedulerVC.swift in Sources */,
 				7F4F840322BD72ED008F9183 /* AppDelegate.swift in Sources */,
 				7F4F842A22BD7467008F9183 /* LineStatusCell.swift in Sources */,

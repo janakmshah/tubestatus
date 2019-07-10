@@ -10,42 +10,72 @@ import UIKit
 
 class ReminderCell: UITableViewCell {
     
-    func horizontalLabelStack(stringTuple: (String?, String?)) -> UIStackView {
-        let hStack = UIStackView()
-        hStack.axis = .horizontal
-        hStack.distribution = .equalSpacing
-        hStack.alignment = .center
-        hStack.spacing = 8
-
-        let label = UILabel()
-        label.text = stringTuple.0
-        label.textAlignment = .left
-        label.font = .systemFont(ofSize: 17, weight: .bold)
-        label.textColor = .secondaryColour
-        label.numberOfLines = 0
-        hStack.addArrangedSubview(label)
-
-        let value = UILabel()
-        value.text = stringTuple.1
-        value.textAlignment = .left
-        value.font = .systemFont(ofSize: 15, weight: .bold)
-        value.textColor = .secondaryColour
-        value.numberOfLines = 0
-        
-        let roundedView = UIView()
-        roundedView.layer.cornerRadius = 14
-        roundedView.clipsToBounds = true
-        roundedView.backgroundColor = .white
-        
-        roundedView.addSubview(value)
-        value.translatesAutoresizingMaskIntoConstraints = false
-        value.topAnchor.constraint(equalTo: roundedView.topAnchor, constant: 6).isActive = true
-        value.bottomAnchor.constraint(equalTo: roundedView.bottomAnchor, constant: -6).isActive = true
-        value.leftAnchor.constraint(equalTo: roundedView.leftAnchor, constant: 12).isActive = true
-        value.rightAnchor.constraint(equalTo: roundedView.rightAnchor, constant: -12).isActive = true
-        hStack.addArrangedSubview(roundedView)
-
-        return hStack
+    var reminder: ReminderVM? {
+        didSet {
+            
+            guard let reminder = reminder else { return }
+            
+            contentView.subviews.forEach({ $0.removeFromSuperview() })
+            
+            let hStack = UIStackView()
+            hStack.axis = .horizontal
+            hStack.distribution = .fill
+            hStack.alignment = .center
+            hStack.spacing = 12
+            
+            let label = UILabel()
+            label.text = reminder.time == "New timed alert" ? "➕" : "🕗"
+            label.textAlignment = .left
+            label.font = .systemFont(ofSize: 17, weight: .medium)
+            label.textColor = .primaryColour
+            label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+            hStack.addArrangedSubview(label)
+            
+            let vStack = UIStackView()
+            vStack.axis = .vertical
+            vStack.distribution = .equalSpacing
+            vStack.alignment = .leading
+            vStack.spacing = 0
+            vStack.setContentHuggingPriority(.defaultLow, for: .horizontal)
+            hStack.addArrangedSubview(vStack)
+            
+            if reminder.time != "New timed alert" {
+                let switchUI = UISwitch()
+                switchUI.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+                hStack.addArrangedSubview(switchUI)
+            }
+            
+            let time = UILabel()
+            time.text = reminder.time
+            time.textAlignment = .left
+            time.font = .systemFont(ofSize: 15, weight: .medium)
+            time.textColor = .primaryColour
+            vStack.addArrangedSubview(time)
+            
+            let days = UILabel()
+            days.text = reminder.days.map({$0.rawValue}).joined(separator: ", ")
+            days.textAlignment = .left
+            days.font = .systemFont(ofSize: 13, weight: .bold)
+            days.textColor = .primaryColour
+            days.numberOfLines = 0
+            vStack.addArrangedSubview(days)
+                        
+            let lines = UILabel()
+            lines.text = reminder.lines.map({$0.stringValue()}).joined(separator: ", ")
+            lines.textAlignment = .left
+            lines.font = .systemFont(ofSize: 13, weight: .medium)
+            lines.textColor = .primaryColour
+            lines.numberOfLines = 0
+            vStack.addArrangedSubview(lines)
+            
+            contentView.backgroundColor = .white
+            contentView.addSubview(hStack)
+            hStack.translatesAutoresizingMaskIntoConstraints = false
+            hStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16).isActive = true
+            hStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
+            hStack.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16).isActive = true
+            hStack.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16).isActive = true
+        }
     }
 
     // MARK: - Initialization
@@ -55,23 +85,6 @@ class ReminderCell: UITableViewCell {
         selectionStyle = .none
         self.backgroundColor = .clear
         contentView.backgroundColor = .clear
-        
-        contentView.subviews.forEach({ $0.removeFromSuperview() })
-        
-        let vStack = UIStackView()
-        vStack.axis = .vertical
-        vStack.distribution = .equalSpacing
-        vStack.alignment = .fill
-        vStack.spacing = 4
-        vStack.addArrangedSubview(horizontalLabelStack(stringTuple: ("Hello", "Janak")))
-        
-        contentView.backgroundColor = .orange
-        contentView.addSubview(vStack)
-        vStack.translatesAutoresizingMaskIntoConstraints = false
-        vStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16).isActive = true
-        vStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
-        vStack.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16).isActive = true
-        vStack.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16).isActive = true
     }
 
     required init?(coder aDecoder: NSCoder) {

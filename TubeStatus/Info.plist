@@ -38,6 +38,8 @@
 		<string>CheckTubeStatusIntent</string>
 		<string>TubeStatusIntent</string>
 	</array>
+	<key>UIApplicationShortcutWidget</key>
+	<string>com.appktchn.TubeStatus.SimpleTodayWidget</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>

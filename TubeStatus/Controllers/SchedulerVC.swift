@@ -10,6 +10,8 @@ import UIKit
 
 class SchedulerVC: UITableViewController {
 
+    var remindersArray = [ReminderVM]()
+    
     enum Sections: Int, CaseIterable {
         case example
         case reminders
@@ -24,7 +26,9 @@ class SchedulerVC: UITableViewController {
     }
     
     @objc fileprivate func loadSchedule() {
-
+        remindersArray = [ReminderVM(days: [.Mon, .Tue], time: "12:40", lines: [.bakerloo, .jubilee, .hammersmithCity, .londonOverground, .waterlooCity]),
+                          ReminderVM(days: [.Mon, .Tue], time: "12:40", lines: [.bakerloo, .jubilee])]
+        tableView.reloadData()
     }
     
     fileprivate func setupTableView() {
@@ -63,12 +67,29 @@ class SchedulerVC: UITableViewController {
         case .example?:
             return 1
         case .reminders?:
-            return 1
+            return remindersArray.count
         case .addReminder?:
             return 1
         case .none:
             return 0
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch Sections(rawValue: section) {
+        case .example?:
+            return 0
+        case .reminders?:
+            return 12
+        case .addReminder?:
+            return 12
+        case .none:
+            return 0
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -82,10 +103,12 @@ class SchedulerVC: UITableViewController {
         case .reminders?:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReminderCell.self),
                                                            for: indexPath) as? ReminderCell else { return UITableViewCell() }
+            cell.reminder = remindersArray[indexPath.row]
             return cell
         case .addReminder?:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReminderCell.self),
                                                            for: indexPath) as? ReminderCell else { return UITableViewCell() }
+            cell.reminder = ReminderVM(days: [], time: "New timed alert", lines: [])
             return cell
         case .none:
             return UITableViewCell()
