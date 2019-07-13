@@ -9,7 +9,7 @@
 import Foundation
 import TubeStatusCore
 
-enum DayOfWeek: String {
+enum DayOfWeek: String, CaseIterable {
     case Mon
     case Tue
     case Wed
@@ -20,9 +20,9 @@ enum DayOfWeek: String {
 }
 
 class ReminderVM {
-    let days: [DayOfWeek]
-    let time: String
-    let lines: [LineID]
+    var days: [DayOfWeek]
+    var time: String
+    var lines: [LineID]
     
     init(days: [DayOfWeek], time: String, lines: [LineID]) {
         self.days = days

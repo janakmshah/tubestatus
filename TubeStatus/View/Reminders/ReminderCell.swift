@@ -39,11 +39,11 @@ class ReminderCell: UITableViewCell {
             vStack.setContentHuggingPriority(.defaultLow, for: .horizontal)
             hStack.addArrangedSubview(vStack)
             
-            if reminder.time != "New timed alert" {
-                let switchUI = UISwitch()
-                switchUI.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-                hStack.addArrangedSubview(switchUI)
-            }
+//            if reminder.time != "New timed alert" {
+//                let switchUI = UISwitch()
+//                switchUI.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+//                hStack.addArrangedSubview(switchUI)
+//            }
             
             let time = UILabel()
             time.text = reminder.time
@@ -55,16 +55,16 @@ class ReminderCell: UITableViewCell {
             let days = UILabel()
             days.text = reminder.days.map({$0.rawValue}).joined(separator: ", ")
             days.textAlignment = .left
-            days.font = .systemFont(ofSize: 13, weight: .bold)
-            days.textColor = .primaryColour
+            days.font = .systemFont(ofSize: 13, weight: .medium)
+            days.textColor = .lightGray
             days.numberOfLines = 0
             vStack.addArrangedSubview(days)
                         
             let lines = UILabel()
-            lines.text = reminder.lines.map({$0.stringValue()}).joined(separator: ", ")
+            lines.text = reminder.lines.map({$0.stringValue}).joined(separator: ", ")
             lines.textAlignment = .left
             lines.font = .systemFont(ofSize: 13, weight: .medium)
-            lines.textColor = .primaryColour
+            lines.textColor = .lightGray
             lines.numberOfLines = 0
             vStack.addArrangedSubview(lines)
             

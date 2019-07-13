@@ -11,6 +11,7 @@ import UIKit
 class SchedulerVC: UITableViewController {
 
     var remindersArray = [ReminderVM]()
+    var savedArray = [ReminderVM]()
     
     enum Sections: Int, CaseIterable {
         case example
@@ -25,10 +26,18 @@ class SchedulerVC: UITableViewController {
         loadSchedule()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     @objc fileprivate func loadSchedule() {
         remindersArray = [ReminderVM(days: [.Mon, .Tue], time: "12:40", lines: [.bakerloo, .jubilee, .hammersmithCity, .londonOverground, .waterlooCity]),
                           ReminderVM(days: [.Mon, .Tue], time: "12:40", lines: [.bakerloo, .jubilee])]
-        tableView.reloadData()
+        
+        //Get remote reminders
+        //if remote reminders != local reminders && local reminders .isNotEmpty {
+        //Then push local reminders to remote
+        //else overwrite local with remote and reload table
     }
     
     fileprivate func setupTableView() {
@@ -116,7 +125,21 @@ class SchedulerVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        switch Sections(rawValue: indexPath.section) {
+        case .example?:
+            return
+        case .reminders?:
+            self.present(UINavigationController(rootViewController: CreateReminderVC(reminder: remindersArray[indexPath.row], new: false)), animated: true)
+        case .addReminder?:
+            let formatter = DateFormatter()
+            formatter.locale = Locale(identifier: "en_US_POSIX")
+            formatter.dateFormat = "HH:mm"
+            let newReminder = ReminderVM(days: DayOfWeek.allCases, time: formatter.string(from: Date()), lines: [])
+            self.present(UINavigationController(rootViewController: CreateReminderVC(reminder: newReminder, new: true)), animated: true)
+        case .none:
+            return
+        }
+        
     }
-
+    
 }
