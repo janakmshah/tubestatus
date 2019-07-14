@@ -31,13 +31,7 @@ class SchedulerVC: UITableViewController {
     }
     
     @objc fileprivate func loadSchedule() {
-        remindersArray = [ReminderVM(days: [.Monday, .Tuesday], time: "12:40", lines: [.bakerloo, .jubilee, .hammersmithCity, .londonOverground, .waterlooCity]),
-                          ReminderVM(days: [.Monday, .Tuesday], time: "12:40", lines: [.bakerloo, .jubilee])]
-        
-        //Get remote reminders
-        //if remote reminders != local reminders && local reminders .isNotEmpty {
-        //Then push local reminders to remote
-        //else overwrite local with remote and reload table
+
     }
     
     fileprivate func setupTableView() {
@@ -117,7 +111,7 @@ class SchedulerVC: UITableViewController {
         case .addReminder?:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReminderCell.self),
                                                            for: indexPath) as? ReminderCell else { return UITableViewCell() }
-            cell.reminder = ReminderVM(days: [], time: "New timed alert", lines: [])
+            cell.reminder = ReminderVM(days: [], time: "New timed alert", lines: [], id: UUID().uuidString)
             return cell
         case .none:
             return UITableViewCell()
@@ -134,7 +128,7 @@ class SchedulerVC: UITableViewController {
             let formatter = DateFormatter()
             formatter.locale = Locale(identifier: "en_US_POSIX")
             formatter.dateFormat = "HH:mm"
-            let newReminder = ReminderVM(days: [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday], time: formatter.string(from: Date()), lines: [])
+            let newReminder = ReminderVM(days: [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday], time: formatter.string(from: Date()), lines: [], id: UUID().uuidString)
             self.present(UINavigationController(rootViewController: CreateReminderVC(reminder: newReminder, new: true)), animated: true)
         case .none:
             return

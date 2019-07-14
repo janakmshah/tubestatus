@@ -19,14 +19,9 @@ enum DayOfWeek: String, CaseIterable {
     case Sunday
 }
 
-class ReminderVM {
+struct ReminderVM {
     var days: [DayOfWeek]
     var time: String
     var lines: [LineID]
-    
-    init(days: [DayOfWeek], time: String, lines: [LineID]) {
-        self.days = days
-        self.time = time
-        self.lines = lines
-    }
+    var id: String
 }
