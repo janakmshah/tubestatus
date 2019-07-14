@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TubeStatusCore
 
 class DaysCollectionView: UICollectionView {
 

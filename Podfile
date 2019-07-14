@@ -5,5 +5,6 @@ target 'TubeStatus' do
 
   # Pods for TubeStatus
 pod 'MBProgressHUD', '~> 1.1.0'
+pod 'Firebase/Core'
 
 end

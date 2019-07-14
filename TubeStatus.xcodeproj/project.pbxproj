@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F19719522D68EA4009F3158 /* ReminderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F19719422D68EA4009F3158 /* ReminderVM.swift */; };
 		7F4F840322BD72ED008F9183 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F840222BD72ED008F9183 /* AppDelegate.swift */; };
 		7F4F840A22BD72EE008F9183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F840922BD72EE008F9183 /* Assets.xcassets */; };
 		7F4F840D22BD72EE008F9183 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F840B22BD72EE008F9183 /* LaunchScreen.storyboard */; };
 		7F4F842422BD73D9008F9183 /* StatusListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F842322BD73D9008F9183 /* StatusListVC.swift */; };
 		7F4F842A22BD7467008F9183 /* LineStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F842922BD7467008F9183 /* LineStatusCell.swift */; };
+		7F536DC022DBE1CF00025632 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F536DBF22DBE1CF00025632 /* GoogleService-Info.plist */; };
 		7F7C942122C797210055466C /* TubeStatusCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C942022C7971C0055466C /* TubeStatusCore.framework */; };
 		7F7C942222C797210055466C /* TubeStatusCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C942022C7971C0055466C /* TubeStatusCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7F7C942C22C819350055466C /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C942B22C819350055466C /* IntentHandler.swift */; };
@@ -112,7 +112,6 @@
 
 /* Begin PBXFileReference section */
 		166476670031A3C074139446 /* Pods-TubeStatus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TubeStatus.release.xcconfig"; path = "Target Support Files/Pods-TubeStatus/Pods-TubeStatus.release.xcconfig"; sourceTree = "<group>"; };
-		7F19719422D68EA4009F3158 /* ReminderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderVM.swift; sourceTree = "<group>"; };
 		7F4F83FF22BD72ED008F9183 /* TubeStatus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TubeStatus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4F840222BD72ED008F9183 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F4F840922BD72EE008F9183 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,6 +120,7 @@
 		7F4F842322BD73D9008F9183 /* StatusListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusListVC.swift; sourceTree = "<group>"; };
 		7F4F842922BD7467008F9183 /* LineStatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineStatusCell.swift; sourceTree = "<group>"; };
 		7F4F843C22BD7CC5008F9183 /* TubeStatus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TubeStatus-Bridging-Header.h"; sourceTree = "<group>"; };
+		7F536DBF22DBE1CF00025632 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7F7C941B22C7971C0055466C /* TubeStatusCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TubeStatusCore.xcodeproj; path = ../TubeStatusCore/TubeStatusCore.xcodeproj; sourceTree = "<group>"; };
 		7F7C942922C819350055466C /* TubeStatusIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TubeStatusIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F7C942B22C819350055466C /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
@@ -203,17 +203,10 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		7F19719322D68E80009F3158 /* ReminderModel */ = {
-			isa = PBXGroup;
-			children = (
-				7F19719422D68EA4009F3158 /* ReminderVM.swift */,
-			);
-			path = ReminderModel;
-			sourceTree = "<group>";
-		};
 		7F4F83F622BD72ED008F9183 = {
 			isa = PBXGroup;
 			children = (
+				7F536DBF22DBE1CF00025632 /* GoogleService-Info.plist */,
 				7F7C941B22C7971C0055466C /* TubeStatusCore.xcodeproj */,
 				7F4F840122BD72ED008F9183 /* TubeStatus */,
 				7F7C944822C819640055466C /* Intents.intentdefinition */,
@@ -242,7 +235,6 @@
 			children = (
 				7F969EE222C41BFC00562373 /* TubeStatus.entitlements */,
 				7F4F840222BD72ED008F9183 /* AppDelegate.swift */,
-				7F19719322D68E80009F3158 /* ReminderModel */,
 				7F4F842222BD7326008F9183 /* Controllers */,
 				7F4F842822BD7467008F9183 /* View */,
 				7F4F840922BD72EE008F9183 /* Assets.xcassets */,
@@ -510,6 +502,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F4F840D22BD72EE008F9183 /* LaunchScreen.storyboard in Resources */,
+				7F536DC022DBE1CF00025632 /* GoogleService-Info.plist in Resources */,
 				7F80FC8322DA8CA3005D0719 /* DaysViewCell.xib in Resources */,
 				7F4F840A22BD72EE008F9183 /* Assets.xcassets in Resources */,
 			);
@@ -593,7 +586,6 @@
 				7FDE45E022BF9FFF004909BE /* TimerCell.swift in Sources */,
 				7FB875C222D29BF3001C184E /* ReminderCell.swift in Sources */,
 				7F4F842422BD73D9008F9183 /* StatusListVC.swift in Sources */,
-				7F19719522D68EA4009F3158 /* ReminderVM.swift in Sources */,
 				7F80FC7C22DA858D005D0719 /* DaySelectCell.swift in Sources */,
 				7F80FC8222DA8CA3005D0719 /* DaysViewCell.swift in Sources */,
 				7FB875C022D29A43001C184E /* SchedulerVC.swift in Sources */,

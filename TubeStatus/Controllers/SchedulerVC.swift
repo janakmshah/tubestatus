@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TubeStatusCore
 
 class SchedulerVC: UITableViewController {
 
@@ -31,7 +32,9 @@ class SchedulerVC: UITableViewController {
     }
     
     @objc fileprivate func loadSchedule() {
-
+        ReminderVM(days: [], time: "", lines: [], id: "").loadAlerts { (reminders, error) in
+            
+        }
     }
     
     fileprivate func setupTableView() {
