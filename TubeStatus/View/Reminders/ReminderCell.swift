@@ -53,7 +53,7 @@ class ReminderCell: UITableViewCell {
             vStack.addArrangedSubview(time)
             
             let days = UILabel()
-            days.text = reminder.days.map({$0.rawValue}).joined(separator: ", ")
+            days.text = daysDisplayName
             days.textAlignment = .left
             days.font = .systemFont(ofSize: 13, weight: .medium)
             days.textColor = .lightGray
@@ -78,6 +78,20 @@ class ReminderCell: UITableViewCell {
         }
     }
 
+    var daysDisplayName: String {
+        guard let reminder = reminder else { return "" }
+        
+        if reminder.days == [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday] {
+            return "Everyday"
+        } else if reminder.days == [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday] {
+            return "Weekdays"
+        } else if reminder.days == [.Saturday, .Sunday] {
+            return "Weekends"
+        } else {
+            return reminder.days.map({$0.rawValue}).joined(separator: ", ")
+        }
+    }
+    
     // MARK: - Initialization
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

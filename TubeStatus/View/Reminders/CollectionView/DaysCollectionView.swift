@@ -102,6 +102,7 @@ extension DaysCollectionView: UICollectionViewDelegate {
             reminder.days.remove(at: index)
         } else {
             reminder.days.append(dayOfWeek)
+            reminder.days = reminder.days.sorted{ DayOfWeek.allCases.firstIndex(of: $0)! < DayOfWeek.allCases.firstIndex(of: $1)! }
         }
         self.reloadData()
     }

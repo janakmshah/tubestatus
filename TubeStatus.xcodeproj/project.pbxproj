@@ -26,7 +26,7 @@
 		7F80FC8222DA8CA3005D0719 /* DaysViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F80FC8022DA8CA3005D0719 /* DaysViewCell.swift */; };
 		7F80FC8322DA8CA3005D0719 /* DaysViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F80FC8122DA8CA3005D0719 /* DaysViewCell.xib */; };
 		7F86951B22D7CD7700C8CC7A /* CreateReminderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F86951A22D7CD7700C8CC7A /* CreateReminderVC.swift */; };
-		7F86951D22D7CF3700C8CC7A /* SelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F86951C22D7CF3700C8CC7A /* SelectionCell.swift */; };
+		7F86951D22D7CF3700C8CC7A /* LineSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F86951C22D7CF3700C8CC7A /* LineSelectCell.swift */; };
 		7FAA278322D12ACD007AAEA7 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE233DF22CFF4D1008D0253 /* NotificationCenter.framework */; };
 		7FAA278622D12ACD007AAEA7 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA278522D12ACD007AAEA7 /* TodayViewController.swift */; };
 		7FAA278922D12ACD007AAEA7 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FAA278722D12ACD007AAEA7 /* MainInterface.storyboard */; };
@@ -134,7 +134,7 @@
 		7F80FC8022DA8CA3005D0719 /* DaysViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysViewCell.swift; sourceTree = "<group>"; };
 		7F80FC8122DA8CA3005D0719 /* DaysViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DaysViewCell.xib; sourceTree = "<group>"; };
 		7F86951A22D7CD7700C8CC7A /* CreateReminderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateReminderVC.swift; sourceTree = "<group>"; };
-		7F86951C22D7CF3700C8CC7A /* SelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionCell.swift; sourceTree = "<group>"; };
+		7F86951C22D7CF3700C8CC7A /* LineSelectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSelectCell.swift; sourceTree = "<group>"; };
 		7F969EE222C41BFC00562373 /* TubeStatus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TubeStatus.entitlements; sourceTree = "<group>"; };
 		7FAA277C22D1259A007AAEA7 /* TubeStatusIntent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TubeStatusIntent.entitlements; sourceTree = "<group>"; };
 		7FAA277D22D125A2007AAEA7 /* TodayWIdget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayWIdget.entitlements; sourceTree = "<group>"; };
@@ -297,7 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				7FB875C122D29BF3001C184E /* ReminderCell.swift */,
-				7F86951C22D7CF3700C8CC7A /* SelectionCell.swift */,
+				7F86951C22D7CF3700C8CC7A /* LineSelectCell.swift */,
 				7F80FC7B22DA858D005D0719 /* DaySelectCell.swift */,
 				7F80FC7822DA7945005D0719 /* TimeSelectCell.swift */,
 				7F80FC7D22DA8904005D0719 /* CollectionView */,
@@ -598,7 +598,7 @@
 				7F80FC8222DA8CA3005D0719 /* DaysViewCell.swift in Sources */,
 				7FB875C022D29A43001C184E /* SchedulerVC.swift in Sources */,
 				7F4F840322BD72ED008F9183 /* AppDelegate.swift in Sources */,
-				7F86951D22D7CF3700C8CC7A /* SelectionCell.swift in Sources */,
+				7F86951D22D7CF3700C8CC7A /* LineSelectCell.swift in Sources */,
 				7F80FC7F22DA8931005D0719 /* DaysCollectionView.swift in Sources */,
 				7F80FC7922DA7945005D0719 /* TimeSelectCell.swift in Sources */,
 				7F4F842A22BD7467008F9183 /* LineStatusCell.swift in Sources */,

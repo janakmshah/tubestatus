@@ -9,7 +9,7 @@
 import UIKit
 import TubeStatusCore
 
-class SelectionCell: UITableViewCell {
+class LineSelectCell: UITableViewCell {
     
     let label = UILabel()
     let tick = UIImageView()

@@ -41,7 +41,7 @@ class CreateReminderVC: UITableViewController {
     }
     
     fileprivate func setupTableView() {
-        tableView.register(SelectionCell.self, forCellReuseIdentifier: String(describing: SelectionCell.self))
+        tableView.register(LineSelectCell.self, forCellReuseIdentifier: String(describing: LineSelectCell.self))
         tableView.register(DaySelectCell.self, forCellReuseIdentifier: String(describing: DaySelectCell.self))
         tableView.register(TimeSelectCell.self, forCellReuseIdentifier: String(describing: TimeSelectCell.self))
         tableView.separatorStyle = .none
@@ -131,8 +131,8 @@ class CreateReminderVC: UITableViewController {
             cell.reminder = reminder
             return cell
         case .lines?:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SelectionCell.self),
-                                                           for: indexPath) as? SelectionCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: LineSelectCell.self),
+                                                           for: indexPath) as? LineSelectCell else { return UITableViewCell() }
             cell.labelString = LineID.allCases[indexPath.row].stringValue
             cell.chosen = reminder.lines.contains(LineID.allCases[indexPath.row])
             cell.line = LineID.allCases[indexPath.row]
@@ -147,11 +147,7 @@ class CreateReminderVC: UITableViewController {
         case .time?:
             return
         case .days?:
-            if let index = reminder.days.firstIndex(of: DayOfWeek.allCases[indexPath.row]) {
-                reminder.days.remove(at: index)
-            } else {
-                reminder.days.append(DayOfWeek.allCases[indexPath.row])
-            }
+            return
         case .lines?:
             if let index = reminder.lines.firstIndex(of: LineID.allCases[indexPath.row]) {
                 reminder.lines.remove(at: index)
