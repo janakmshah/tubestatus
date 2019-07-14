@@ -10,14 +10,14 @@ import UIKit
 
 class DaysCollectionView: UICollectionView {
 
-    let reminder: ReminderVM
+    var reminderDays: [DayOfWeek]
     
     let overallHSpace: CGFloat = 16
     let interHSpace: CGFloat = 8
     let interVSpace: CGFloat = 8
     
-    init(reminder: ReminderVM) {
-        self.reminder = reminder
+    init(reminderDays: [DayOfWeek]) {
+        self.reminderDays = reminderDays
         super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 80), collectionViewLayout: UICollectionViewFlowLayout())
         self.customInit()
     }
@@ -82,7 +82,7 @@ extension DaysCollectionView: UICollectionViewDataSource {
                                                        for: indexPath) as? DaysViewCell else { return UICollectionViewCell() }
         let dayOfWeek = DayOfWeek.allCases[indexPath.row]
         cell.label.text = dayOfWeek.rawValue
-        if reminder.days.contains(dayOfWeek) {
+        if reminderDays.contains(dayOfWeek) {
             cell.container.backgroundColor = .primaryColour
             cell.label.textColor = .white
         } else {
@@ -98,11 +98,11 @@ extension DaysCollectionView: UICollectionViewDataSource {
 extension DaysCollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let dayOfWeek = DayOfWeek.allCases[indexPath.row]
-        if let index = reminder.days.firstIndex(of: dayOfWeek) {
-            reminder.days.remove(at: index)
+        if let index = reminderDays.firstIndex(of: dayOfWeek) {
+            reminderDays.remove(at: index)
         } else {
-            reminder.days.append(dayOfWeek)
-            reminder.days = reminder.days.sorted{ DayOfWeek.allCases.firstIndex(of: $0)! < DayOfWeek.allCases.firstIndex(of: $1)! }
+            reminderDays.append(dayOfWeek)
+            reminderDays = reminderDays.sorted{ DayOfWeek.allCases.firstIndex(of: $0)! < DayOfWeek.allCases.firstIndex(of: $1)! }
         }
         self.reloadData()
     }

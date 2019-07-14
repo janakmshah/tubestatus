@@ -11,7 +11,9 @@ import TubeStatusCore
 
 class CreateReminderVC: UITableViewController {
 
-    let reminder: ReminderVM
+    var days: [DayOfWeek]
+    var time: String
+    var lines: [LineID]
     
     enum Sections: Int, CaseIterable {
         case time
@@ -20,7 +22,9 @@ class CreateReminderVC: UITableViewController {
     }
 
     init(reminder: ReminderVM, new: Bool) {
-        self.reminder = reminder
+        self.days = reminder.days
+        self.lines = reminder.lines
+        self.time = reminder.time
         super.init(nibName: nil, bundle: nil)
         self.title = new ? "Add new alert" : "Edit alert"
     }
@@ -123,18 +127,18 @@ class CreateReminderVC: UITableViewController {
         case .time?:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TimeSelectCell.self),
                                                            for: indexPath) as? TimeSelectCell else { return UITableViewCell() }
-            cell.reminder = self.reminder
+            cell.timeString = self.time
             return cell
         case .days?:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DaySelectCell.self),
                                                            for: indexPath) as? DaySelectCell else { return UITableViewCell() }
-            cell.reminder = reminder
+            cell.reminderDays = days
             return cell
         case .lines?:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: LineSelectCell.self),
                                                            for: indexPath) as? LineSelectCell else { return UITableViewCell() }
             cell.labelString = LineID.allCases[indexPath.row].stringValue
-            cell.chosen = reminder.lines.contains(LineID.allCases[indexPath.row])
+            cell.chosen = lines.contains(LineID.allCases[indexPath.row])
             cell.line = LineID.allCases[indexPath.row]
             return cell
         case .none:
@@ -149,10 +153,10 @@ class CreateReminderVC: UITableViewController {
         case .days?:
             return
         case .lines?:
-            if let index = reminder.lines.firstIndex(of: LineID.allCases[indexPath.row]) {
-                reminder.lines.remove(at: index)
+            if let index = lines.firstIndex(of: LineID.allCases[indexPath.row]) {
+                lines.remove(at: index)
             } else {
-                reminder.lines.append(LineID.allCases[indexPath.row])
+                lines.append(LineID.allCases[indexPath.row])
             }
         case .none:
             return

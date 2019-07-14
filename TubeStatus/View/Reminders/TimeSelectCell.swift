@@ -12,13 +12,13 @@ class TimeSelectCell: UITableViewCell {
     
     let picker = UIDatePicker()
     
-    var reminder: ReminderVM? {
+    var timeString: String? {
         didSet {
-            guard let reminder = reminder else { return }
+            guard let timeString = timeString else { return }
             let formatter = DateFormatter()
             formatter.locale = Locale(identifier: "en_US_POSIX")
             formatter.dateFormat = "HH:mm"
-            picker.date = formatter.date(from: reminder.time) ?? Date()
+            picker.date = formatter.date(from: timeString) ?? Date()
         }
     }
 
@@ -44,10 +44,9 @@ class TimeSelectCell: UITableViewCell {
     }
     
     @objc private func datePickerValueChanged(_ sender: UIDatePicker) {
-        guard let reminder = reminder else { return }
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = "HH:mm"
-        reminder.time = formatter.string(from: sender.date)
+        timeString = formatter.string(from: sender.date)
     }
 }

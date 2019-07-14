@@ -12,11 +12,11 @@ import TubeStatusCore
 class DaySelectCell: UITableViewCell {
 
     // MARK: - Initialization
-    var reminder: ReminderVM? {
+    var reminderDays: [DayOfWeek]? {
         didSet {
-            guard let reminder = reminder else { return }
+            guard let reminderDays = reminderDays else { return }
             contentView.subviews.forEach({ $0.removeFromSuperview() })
-            let collectionView = DaysCollectionView(reminder: reminder)
+            let collectionView = DaysCollectionView(reminderDays: reminderDays)
             contentView.addSubview(collectionView)
             collectionView.translatesAutoresizingMaskIntoConstraints = false
             collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
