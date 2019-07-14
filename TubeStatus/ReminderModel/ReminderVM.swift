@@ -10,13 +10,13 @@ import Foundation
 import TubeStatusCore
 
 enum DayOfWeek: String, CaseIterable {
-    case Mon
-    case Tue
-    case Wed
-    case Thu
-    case Fri
-    case Sat
-    case Sun
+    case Monday
+    case Tuesday
+    case Wednesday
+    case Thursday
+    case Friday
+    case Saturday
+    case Sunday
 }
 
 class ReminderVM {

@@ -21,6 +21,10 @@
 		7F7C944A22C81A690055466C /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C944822C819640055466C /* Intents.intentdefinition */; };
 		7F7C944D22C81AED0055466C /* TubeStatusIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C944C22C81AED0055466C /* TubeStatusIntentHandler.swift */; };
 		7F80FC7922DA7945005D0719 /* TimeSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F80FC7822DA7945005D0719 /* TimeSelectCell.swift */; };
+		7F80FC7C22DA858D005D0719 /* DaySelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F80FC7B22DA858D005D0719 /* DaySelectCell.swift */; };
+		7F80FC7F22DA8931005D0719 /* DaysCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F80FC7E22DA8931005D0719 /* DaysCollectionView.swift */; };
+		7F80FC8222DA8CA3005D0719 /* DaysViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F80FC8022DA8CA3005D0719 /* DaysViewCell.swift */; };
+		7F80FC8322DA8CA3005D0719 /* DaysViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F80FC8122DA8CA3005D0719 /* DaysViewCell.xib */; };
 		7F86951B22D7CD7700C8CC7A /* CreateReminderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F86951A22D7CD7700C8CC7A /* CreateReminderVC.swift */; };
 		7F86951D22D7CF3700C8CC7A /* SelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F86951C22D7CF3700C8CC7A /* SelectionCell.swift */; };
 		7FAA278322D12ACD007AAEA7 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE233DF22CFF4D1008D0253 /* NotificationCenter.framework */; };
@@ -125,6 +129,10 @@
 		7F7C944822C819640055466C /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		7F7C944C22C81AED0055466C /* TubeStatusIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubeStatusIntentHandler.swift; sourceTree = "<group>"; };
 		7F80FC7822DA7945005D0719 /* TimeSelectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSelectCell.swift; sourceTree = "<group>"; };
+		7F80FC7B22DA858D005D0719 /* DaySelectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaySelectCell.swift; sourceTree = "<group>"; };
+		7F80FC7E22DA8931005D0719 /* DaysCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysCollectionView.swift; sourceTree = "<group>"; };
+		7F80FC8022DA8CA3005D0719 /* DaysViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysViewCell.swift; sourceTree = "<group>"; };
+		7F80FC8122DA8CA3005D0719 /* DaysViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DaysViewCell.xib; sourceTree = "<group>"; };
 		7F86951A22D7CD7700C8CC7A /* CreateReminderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateReminderVC.swift; sourceTree = "<group>"; };
 		7F86951C22D7CF3700C8CC7A /* SelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionCell.swift; sourceTree = "<group>"; };
 		7F969EE222C41BFC00562373 /* TubeStatus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TubeStatus.entitlements; sourceTree = "<group>"; };
@@ -290,9 +298,21 @@
 			children = (
 				7FB875C122D29BF3001C184E /* ReminderCell.swift */,
 				7F86951C22D7CF3700C8CC7A /* SelectionCell.swift */,
+				7F80FC7B22DA858D005D0719 /* DaySelectCell.swift */,
 				7F80FC7822DA7945005D0719 /* TimeSelectCell.swift */,
+				7F80FC7D22DA8904005D0719 /* CollectionView */,
 			);
 			path = Reminders;
+			sourceTree = "<group>";
+		};
+		7F80FC7D22DA8904005D0719 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				7F80FC7E22DA8931005D0719 /* DaysCollectionView.swift */,
+				7F80FC8022DA8CA3005D0719 /* DaysViewCell.swift */,
+				7F80FC8122DA8CA3005D0719 /* DaysViewCell.xib */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		7FAA278422D12ACD007AAEA7 /* SimpleTodayWidget */ = {
@@ -490,6 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F4F840D22BD72EE008F9183 /* LaunchScreen.storyboard in Resources */,
+				7F80FC8322DA8CA3005D0719 /* DaysViewCell.xib in Resources */,
 				7F4F840A22BD72EE008F9183 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -573,9 +594,12 @@
 				7FB875C222D29BF3001C184E /* ReminderCell.swift in Sources */,
 				7F4F842422BD73D9008F9183 /* StatusListVC.swift in Sources */,
 				7F19719522D68EA4009F3158 /* ReminderVM.swift in Sources */,
+				7F80FC7C22DA858D005D0719 /* DaySelectCell.swift in Sources */,
+				7F80FC8222DA8CA3005D0719 /* DaysViewCell.swift in Sources */,
 				7FB875C022D29A43001C184E /* SchedulerVC.swift in Sources */,
 				7F4F840322BD72ED008F9183 /* AppDelegate.swift in Sources */,
 				7F86951D22D7CF3700C8CC7A /* SelectionCell.swift in Sources */,
+				7F80FC7F22DA8931005D0719 /* DaysCollectionView.swift in Sources */,
 				7F80FC7922DA7945005D0719 /* TimeSelectCell.swift in Sources */,
 				7F4F842A22BD7467008F9183 /* LineStatusCell.swift in Sources */,
 			);

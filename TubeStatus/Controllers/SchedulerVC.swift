@@ -31,8 +31,8 @@ class SchedulerVC: UITableViewController {
     }
     
     @objc fileprivate func loadSchedule() {
-        remindersArray = [ReminderVM(days: [.Mon, .Tue], time: "12:40", lines: [.bakerloo, .jubilee, .hammersmithCity, .londonOverground, .waterlooCity]),
-                          ReminderVM(days: [.Mon, .Tue], time: "12:40", lines: [.bakerloo, .jubilee])]
+        remindersArray = [ReminderVM(days: [.Monday, .Tuesday], time: "12:40", lines: [.bakerloo, .jubilee, .hammersmithCity, .londonOverground, .waterlooCity]),
+                          ReminderVM(days: [.Monday, .Tuesday], time: "12:40", lines: [.bakerloo, .jubilee])]
         
         //Get remote reminders
         //if remote reminders != local reminders && local reminders .isNotEmpty {
@@ -134,7 +134,7 @@ class SchedulerVC: UITableViewController {
             let formatter = DateFormatter()
             formatter.locale = Locale(identifier: "en_US_POSIX")
             formatter.dateFormat = "HH:mm"
-            let newReminder = ReminderVM(days: DayOfWeek.allCases, time: formatter.string(from: Date()), lines: [])
+            let newReminder = ReminderVM(days: [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday], time: formatter.string(from: Date()), lines: [])
             self.present(UINavigationController(rootViewController: CreateReminderVC(reminder: newReminder, new: true)), animated: true)
         case .none:
             return

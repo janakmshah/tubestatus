@@ -42,6 +42,7 @@ class CreateReminderVC: UITableViewController {
     
     fileprivate func setupTableView() {
         tableView.register(SelectionCell.self, forCellReuseIdentifier: String(describing: SelectionCell.self))
+        tableView.register(DaySelectCell.self, forCellReuseIdentifier: String(describing: DaySelectCell.self))
         tableView.register(TimeSelectCell.self, forCellReuseIdentifier: String(describing: TimeSelectCell.self))
         tableView.separatorStyle = .none
         tableView.backgroundColor = .primaryBGColour
@@ -91,7 +92,7 @@ class CreateReminderVC: UITableViewController {
         case .time?:
             return 1
         case .days?:
-            return DayOfWeek.allCases.count
+            return 1
         case .lines?:
             return LineID.allCases.count
         case .none:
@@ -125,11 +126,9 @@ class CreateReminderVC: UITableViewController {
             cell.reminder = self.reminder
             return cell
         case .days?:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SelectionCell.self),
-                                                           for: indexPath) as? SelectionCell else { return UITableViewCell() }
-            cell.labelString = DayOfWeek.allCases[indexPath.row].rawValue
-            cell.chosen = reminder.days.contains(DayOfWeek.allCases[indexPath.row])
-            cell.contentView.backgroundColor = .white
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DaySelectCell.self),
+                                                           for: indexPath) as? DaySelectCell else { return UITableViewCell() }
+            cell.reminder = reminder
             return cell
         case .lines?:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SelectionCell.self),
