@@ -113,7 +113,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         let expanded = activeDisplayMode == .expanded
         bottomButton.isHidden = !expanded
-        preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 486) : maxSize
+        preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 521) : maxSize
     }
     
     private func addButtonToBottom() {
