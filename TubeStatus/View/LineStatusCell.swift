@@ -86,6 +86,10 @@ class LineStatusCell: UITableViewCell {
         roundedView.clipsToBounds = true
         roundedView.backgroundColor = .white
         
+        if value.text?.lowercased() == "good service" {
+            roundedView.alpha = 0.5
+        }
+        
         roundedView.addSubview(value)
         value.translatesAutoresizingMaskIntoConstraints = false
         value.topAnchor.constraint(equalTo: roundedView.topAnchor, constant: 6).isActive = true
