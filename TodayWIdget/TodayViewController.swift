@@ -98,7 +98,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             self.indicatorView.stopAnimating()
             self.indicatorView.isHidden = true
             
-            if let _ = error {
+            if error != nil {
                 self.loadingLabel.text = "Unable to load"
                 completionHandler(NCUpdateResult.failed)
                 return
@@ -132,7 +132,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     @objc func openApp() {
-        extensionContext?.open(URL(string: "tubeStatus://")! , completionHandler: nil)
+        extensionContext?.open(URL(string: "tubeStatus://")!, completionHandler: nil)
     }
     
     func horizontalLabelStack(stringTuple: (String?, String?), line: Line) -> UIView {

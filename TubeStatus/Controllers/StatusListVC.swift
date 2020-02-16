@@ -92,8 +92,6 @@ class StatusListVC: UITableViewController, Refreshable {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.secondaryColour]
     }
     
-
-    
     // MARK: - Tableview
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -104,9 +102,9 @@ class StatusListVC: UITableViewController, Refreshable {
         switch Sections(rawValue: section) {
         case .example:
             let defaults = UserDefaults.standard
-            return defaults.string(forKey: "seenSwipeExample") == nil ? 1 : 0;
+            return defaults.string(forKey: "seenSwipeExample") == nil ? 1 : 0
         case .timer:
-            return lineVM.favouriteLines.isEmpty && lineVM.standardLines.isEmpty ? 0 : 1;
+            return lineVM.favouriteLines.isEmpty && lineVM.standardLines.isEmpty ? 0 : 1
         case .favouriteLines:
             return lineVM.favouriteLines.count
         case .standardLines:
@@ -175,7 +173,7 @@ class StatusListVC: UITableViewController, Refreshable {
         let title = favourite ? "Unfavorite" : "Favorite"
         
         let action = UIContextualAction(style: .normal, title: title,
-                                        handler: { (action, view, completionHandler) in
+                                        handler: { (_, _, completionHandler) in
                                             if favourite {
                                                 self.lineVM.removeFromFaves(lineID: lineID)
                                             } else {
@@ -203,7 +201,7 @@ class StatusListVC: UITableViewController, Refreshable {
     
     func addSiriButton(to view: UIView) {
         
-        INVoiceShortcutCenter.shared.getAllVoiceShortcuts { [unowned self] (allVoiceShortcuts, error) in
+        INVoiceShortcutCenter.shared.getAllVoiceShortcuts { [unowned self] (allVoiceShortcuts, _) in
             if let allVoiceShortcuts = allVoiceShortcuts {
                 if let identifier = UserDefaults.standard.string(forKey: "TubeStatusIntentID"),
                     let shortcut = allVoiceShortcuts.first(where: { (voiceShortcut) -> Bool in

@@ -34,7 +34,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     @objc func openApp() {
-        extensionContext?.open(URL(string: "tubeStatus://")! , completionHandler: nil)
+        extensionContext?.open(URL(string: "tubeStatus://")!, completionHandler: nil)
     }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
@@ -49,7 +49,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 return
             }
             
-            if let _ = error {
+            if error != nil {
                 self.label.text = "Unable to load"
                 completionHandler(NCUpdateResult.failed)
                 return
