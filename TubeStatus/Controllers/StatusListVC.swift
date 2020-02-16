@@ -86,9 +86,8 @@ class StatusListVC: UITableViewController, Refreshable {
     fileprivate func setupNavBar() {
         navigationItem.title = "Tube Status"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = .primaryBGColour
-        navigationController?.navigationBar.tintColor = .secondaryColour
+        navigationController?.navigationBar.tintColor = .primaryBGColour
         navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.secondaryColour]
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.secondaryColour]
     }
@@ -103,14 +102,14 @@ class StatusListVC: UITableViewController, Refreshable {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch Sections(rawValue: section) {
-        case .example?:
+        case .example:
             let defaults = UserDefaults.standard
             return defaults.string(forKey: "seenSwipeExample") == nil ? 1 : 0;
-        case .timer?:
+        case .timer:
             return lineVM.favouriteLines.isEmpty && lineVM.standardLines.isEmpty ? 0 : 1;
-        case .favouriteLines?:
+        case .favouriteLines:
             return lineVM.favouriteLines.count
-        case .standardLines?:
+        case .standardLines:
             return lineVM.standardLines.count
         case .none:
             return 0
@@ -119,15 +118,9 @@ class StatusListVC: UITableViewController, Refreshable {
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         switch Sections(rawValue: section) {
-        case .example?:
-            fallthrough
-        case .timer?:
-            fallthrough
-        case .favouriteLines?:
-            fallthrough
-        case .none:
+        case .example, .timer, .favouriteLines, .none:
             return 0
-        case .standardLines?:
+        case .standardLines:
             return 60
         }
     }
@@ -135,23 +128,23 @@ class StatusListVC: UITableViewController, Refreshable {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch Sections(rawValue: indexPath.section) {
-        case .example?:
+        case .example:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SwipeExampleCell.self),
                                                            for: indexPath) as? SwipeExampleCell else { return UITableViewCell() }
             cell.setupCell()
             return cell
-        case .timer?:
+        case .timer:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TimerCell.self),
                                                            for: indexPath) as? TimerCell else { return UITableViewCell() }
             cell.lineVM = lineVM
             return cell
-        case .favouriteLines?:
+        case .favouriteLines:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: LineStatusCell.self),
                                                            for: indexPath) as? LineStatusCell else { return UITableViewCell() }
             cell.favourite = true
             cell.line = lineVM.favouriteLines[indexPath.row]
             return cell
-        case .standardLines?:
+        case .standardLines:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: LineStatusCell.self),
                                                            for: indexPath) as? LineStatusCell else { return UITableViewCell() }
             cell.favourite = false
@@ -226,38 +219,13 @@ class StatusListVC: UITableViewController, Refreshable {
         }
 
         siriButton.delegate = self
-        
-        let containerView = UIView()
-        view.addSubview(containerView)
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        view.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
-        view.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-        
         siriButton.translatesAutoresizingMaskIntoConstraints = false
-        containerView.addSubview(siriButton)
+        view.addSubview(siriButton)
         
-        let notificationsButton = UIButton()
-        notificationsButton.layer.cornerRadius = 13
-        notificationsButton.backgroundColor = .secondaryColour
-        notificationsButton.translatesAutoresizingMaskIntoConstraints = false
-        notificationsButton.addTarget(self, action: #selector(showNotificationsScreen), for: .touchUpInside)
-        containerView.addSubview(notificationsButton)
+        siriButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 8).isActive = true
+        siriButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8).isActive = true
+        siriButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
-        containerView.trailingAnchor.constraint(equalTo: siriButton.trailingAnchor).isActive = true
-        containerView.topAnchor.constraint(equalTo: siriButton.topAnchor).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: siriButton.bottomAnchor).isActive = true
-        
-        notificationsButton.trailingAnchor.constraint(equalTo: siriButton.leadingAnchor, constant: -8).isActive = true
-        containerView.leadingAnchor.constraint(equalTo: notificationsButton.leadingAnchor).isActive = true
-        
-        notificationsButton.widthAnchor.constraint(equalToConstant: 149).isActive = true
-        containerView.topAnchor.constraint(equalTo: notificationsButton.topAnchor).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: notificationsButton.bottomAnchor).isActive = true
-        
-    }
-    
-    @objc func showNotificationsScreen() {
-        self.show(SchedulerVC(), sender: self)
     }
 
 }

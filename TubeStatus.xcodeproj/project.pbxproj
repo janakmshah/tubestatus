@@ -20,13 +20,6 @@
 		7F7C944922C819640055466C /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C944822C819640055466C /* Intents.intentdefinition */; };
 		7F7C944A22C81A690055466C /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C944822C819640055466C /* Intents.intentdefinition */; };
 		7F7C944D22C81AED0055466C /* TubeStatusIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C944C22C81AED0055466C /* TubeStatusIntentHandler.swift */; };
-		7F80FC7922DA7945005D0719 /* TimeSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F80FC7822DA7945005D0719 /* TimeSelectCell.swift */; };
-		7F80FC7C22DA858D005D0719 /* DaySelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F80FC7B22DA858D005D0719 /* DaySelectCell.swift */; };
-		7F80FC7F22DA8931005D0719 /* DaysCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F80FC7E22DA8931005D0719 /* DaysCollectionView.swift */; };
-		7F80FC8222DA8CA3005D0719 /* DaysViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F80FC8022DA8CA3005D0719 /* DaysViewCell.swift */; };
-		7F80FC8322DA8CA3005D0719 /* DaysViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F80FC8122DA8CA3005D0719 /* DaysViewCell.xib */; };
-		7F86951B22D7CD7700C8CC7A /* CreateReminderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F86951A22D7CD7700C8CC7A /* CreateReminderVC.swift */; };
-		7F86951D22D7CF3700C8CC7A /* LineSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F86951C22D7CF3700C8CC7A /* LineSelectCell.swift */; };
 		7FAA278322D12ACD007AAEA7 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE233DF22CFF4D1008D0253 /* NotificationCenter.framework */; };
 		7FAA278622D12ACD007AAEA7 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA278522D12ACD007AAEA7 /* TodayViewController.swift */; };
 		7FAA278922D12ACD007AAEA7 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FAA278722D12ACD007AAEA7 /* MainInterface.storyboard */; };
@@ -34,8 +27,6 @@
 		7FAA279122D13142007AAEA7 /* TubeStatusCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C942022C7971C0055466C /* TubeStatusCore.framework */; };
 		7FAA279222D13147007AAEA7 /* TubeStatusCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C942022C7971C0055466C /* TubeStatusCore.framework */; };
 		7FB7CB2122C0158F00EC24CE /* SwipeExampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7CB2022C0158F00EC24CE /* SwipeExampleCell.swift */; };
-		7FB875C022D29A43001C184E /* SchedulerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB875BF22D29A43001C184E /* SchedulerVC.swift */; };
-		7FB875C222D29BF3001C184E /* ReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB875C122D29BF3001C184E /* ReminderCell.swift */; };
 		7FB9262722CAADCC00311604 /* TubeStatusCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C942022C7971C0055466C /* TubeStatusCore.framework */; };
 		7FDE45E022BF9FFF004909BE /* TimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDE45DF22BF9FFF004909BE /* TimerCell.swift */; };
 		7FE233F322CFF605008D0253 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE233DF22CFF4D1008D0253 /* NotificationCenter.framework */; };
@@ -128,13 +119,6 @@
 		7F7C943322C819360055466C /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		7F7C944822C819640055466C /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		7F7C944C22C81AED0055466C /* TubeStatusIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubeStatusIntentHandler.swift; sourceTree = "<group>"; };
-		7F80FC7822DA7945005D0719 /* TimeSelectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSelectCell.swift; sourceTree = "<group>"; };
-		7F80FC7B22DA858D005D0719 /* DaySelectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaySelectCell.swift; sourceTree = "<group>"; };
-		7F80FC7E22DA8931005D0719 /* DaysCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysCollectionView.swift; sourceTree = "<group>"; };
-		7F80FC8022DA8CA3005D0719 /* DaysViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysViewCell.swift; sourceTree = "<group>"; };
-		7F80FC8122DA8CA3005D0719 /* DaysViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DaysViewCell.xib; sourceTree = "<group>"; };
-		7F86951A22D7CD7700C8CC7A /* CreateReminderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateReminderVC.swift; sourceTree = "<group>"; };
-		7F86951C22D7CF3700C8CC7A /* LineSelectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSelectCell.swift; sourceTree = "<group>"; };
 		7F969EE222C41BFC00562373 /* TubeStatus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TubeStatus.entitlements; sourceTree = "<group>"; };
 		7FAA277C22D1259A007AAEA7 /* TubeStatusIntent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TubeStatusIntent.entitlements; sourceTree = "<group>"; };
 		7FAA277D22D125A2007AAEA7 /* TodayWIdget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayWIdget.entitlements; sourceTree = "<group>"; };
@@ -143,8 +127,6 @@
 		7FAA278822D12ACD007AAEA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		7FAA278A22D12ACD007AAEA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FB7CB2022C0158F00EC24CE /* SwipeExampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeExampleCell.swift; sourceTree = "<group>"; };
-		7FB875BF22D29A43001C184E /* SchedulerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulerVC.swift; sourceTree = "<group>"; };
-		7FB875C122D29BF3001C184E /* ReminderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderCell.swift; sourceTree = "<group>"; };
 		7FDE45DF22BF9FFF004909BE /* TimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCell.swift; sourceTree = "<group>"; };
 		7FE233DF22CFF4D1008D0253 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		7FE233F222CFF605008D0253 /* TodayWIdget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayWIdget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,8 +231,6 @@
 			isa = PBXGroup;
 			children = (
 				7F4F842322BD73D9008F9183 /* StatusListVC.swift */,
-				7FB875BF22D29A43001C184E /* SchedulerVC.swift */,
-				7F86951A22D7CD7700C8CC7A /* CreateReminderVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -258,7 +238,6 @@
 		7F4F842822BD7467008F9183 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7F80FC7A22DA794E005D0719 /* Reminders */,
 				7F4F842922BD7467008F9183 /* LineStatusCell.swift */,
 				7FDE45DF22BF9FFF004909BE /* TimerCell.swift */,
 				7FB7CB2022C0158F00EC24CE /* SwipeExampleCell.swift */,
@@ -283,28 +262,6 @@
 				7F7C942D22C819350055466C /* Info.plist */,
 			);
 			path = TubeStatusIntent;
-			sourceTree = "<group>";
-		};
-		7F80FC7A22DA794E005D0719 /* Reminders */ = {
-			isa = PBXGroup;
-			children = (
-				7FB875C122D29BF3001C184E /* ReminderCell.swift */,
-				7F86951C22D7CF3700C8CC7A /* LineSelectCell.swift */,
-				7F80FC7B22DA858D005D0719 /* DaySelectCell.swift */,
-				7F80FC7822DA7945005D0719 /* TimeSelectCell.swift */,
-				7F80FC7D22DA8904005D0719 /* CollectionView */,
-			);
-			path = Reminders;
-			sourceTree = "<group>";
-		};
-		7F80FC7D22DA8904005D0719 /* CollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				7F80FC7E22DA8931005D0719 /* DaysCollectionView.swift */,
-				7F80FC8022DA8CA3005D0719 /* DaysViewCell.swift */,
-				7F80FC8122DA8CA3005D0719 /* DaysViewCell.xib */,
-			);
-			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		7FAA278422D12ACD007AAEA7 /* SimpleTodayWidget */ = {
@@ -503,7 +460,6 @@
 			files = (
 				7F4F840D22BD72EE008F9183 /* LaunchScreen.storyboard in Resources */,
 				7F536DC022DBE1CF00025632 /* GoogleService-Info.plist in Resources */,
-				7F80FC8322DA8CA3005D0719 /* DaysViewCell.xib in Resources */,
 				7F4F840A22BD72EE008F9183 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -582,17 +538,9 @@
 			files = (
 				7F7C944922C819640055466C /* Intents.intentdefinition in Sources */,
 				7FB7CB2122C0158F00EC24CE /* SwipeExampleCell.swift in Sources */,
-				7F86951B22D7CD7700C8CC7A /* CreateReminderVC.swift in Sources */,
 				7FDE45E022BF9FFF004909BE /* TimerCell.swift in Sources */,
-				7FB875C222D29BF3001C184E /* ReminderCell.swift in Sources */,
 				7F4F842422BD73D9008F9183 /* StatusListVC.swift in Sources */,
-				7F80FC7C22DA858D005D0719 /* DaySelectCell.swift in Sources */,
-				7F80FC8222DA8CA3005D0719 /* DaysViewCell.swift in Sources */,
-				7FB875C022D29A43001C184E /* SchedulerVC.swift in Sources */,
 				7F4F840322BD72ED008F9183 /* AppDelegate.swift in Sources */,
-				7F86951D22D7CF3700C8CC7A /* LineSelectCell.swift in Sources */,
-				7F80FC7F22DA8931005D0719 /* DaysCollectionView.swift in Sources */,
-				7F80FC7922DA7945005D0719 /* TimeSelectCell.swift in Sources */,
 				7F4F842A22BD7467008F9183 /* LineStatusCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -807,7 +755,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD\"",
 				);
 				INFOPLIST_FILE = TubeStatus/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -835,7 +783,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD\"",
 				);
 				INFOPLIST_FILE = TubeStatus/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
